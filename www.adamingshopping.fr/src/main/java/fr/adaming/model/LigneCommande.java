@@ -18,7 +18,7 @@ public class LigneCommande {
 	@ManyToOne
 	private Commande commade;
 
-	// Constructeur vide vide
+	// Constructeur vide
 	public LigneCommande() {
 		super();
 	}

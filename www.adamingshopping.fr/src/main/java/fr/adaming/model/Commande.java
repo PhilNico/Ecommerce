@@ -24,7 +24,7 @@ public class Commande {
 	
 	private List<LigneCommande> listeLigneCommande;
 
-	//Constructeur vide vide
+	//Constructeur vide
 	public Commande() {
 		super();
 	}
