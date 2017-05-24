@@ -1,10 +1,13 @@
 package fr.adaming.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -23,8 +26,8 @@ public class Produit {
 	private String photo;
 	
 	
-	@ManyToMany
-	private LigneCommande ligneCommande;
+	@OneToMany
+	private List<LigneCommande> listeCommande;
 
 
 	public Produit() {
@@ -33,7 +36,7 @@ public class Produit {
 
 
 	public Produit(String designation, String description, double prix, int quantite, boolean selectionne, String photo,
-			LigneCommande ligneCommande) {
+			List<LigneCommande> listeCommande) {
 		super();
 		this.designation = designation;
 		this.description = description;
@@ -41,12 +44,12 @@ public class Produit {
 		this.quantite = quantite;
 		this.selectionne = selectionne;
 		this.photo = photo;
-		this.ligneCommande = ligneCommande;
+		this.listeCommande = listeCommande;
 	}
 
 
 	public Produit(Long idProduit, String designation, String description, double prix, int quantite,
-			boolean selectionne, String photo, LigneCommande ligneCommande) {
+			boolean selectionne, String photo, List<LigneCommande> listeCommande) {
 		super();
 		this.idProduit = idProduit;
 		this.designation = designation;
@@ -55,7 +58,7 @@ public class Produit {
 		this.quantite = quantite;
 		this.selectionne = selectionne;
 		this.photo = photo;
-		this.ligneCommande = ligneCommande;
+		this.listeCommande = listeCommande;
 	}
 
 
@@ -129,19 +132,14 @@ public class Produit {
 	}
 
 
-	public LigneCommande getLigneCommande() {
-		return ligneCommande;
+	public List<LigneCommande> getListeCommande() {
+		return listeCommande;
 	}
 
 
-	public void setLigneCommande(LigneCommande ligneCommande) {
-		this.ligneCommande = ligneCommande;
+	public void setListeCommande(List<LigneCommande> listeCommande) {
+		this.listeCommande = listeCommande;
 	}
 	
 	
-	
-	
-	
-	
 
-}
