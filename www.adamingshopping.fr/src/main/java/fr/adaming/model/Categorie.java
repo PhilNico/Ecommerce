@@ -41,7 +41,7 @@ public class Categorie {
 		this.description = description;
 	}
 
-	// Getter & Setter
+	// Getter & Setter ma gueule
 	public int getIdCategorie() {
 		return idCategorie;
 	}
