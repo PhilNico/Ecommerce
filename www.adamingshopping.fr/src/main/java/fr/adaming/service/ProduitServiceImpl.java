@@ -1,5 +1,7 @@
 package fr.adaming.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import fr.adaming.dao.IProduitDao;
@@ -12,26 +14,32 @@ public class ProduitServiceImpl implements IProduitService{
 	
 	@Override
 	public void ajouter(Produit p) {
-		// TODO Auto-generated method stub
+		pDao.ajouter(p);
 		
 	}
 
 	@Override
 	public int supprimer(Produit p) {
 		// TODO Auto-generated method stub
-		return 0;
+		return pDao.supprimer(p);
 	}
 
 	@Override
 	public Produit modifier(Produit p) {
 		// TODO Auto-generated method stub
-		return null;
+		return pDao.modifier(p);
 	}
 
 	@Override
 	public Produit consulter(Produit p) {
 		// TODO Auto-generated method stub
-		return null;
+		return pDao.consulter(p);
+	}
+
+	@Override
+	public List<Produit> consulterAll() {
+		// TODO Auto-generated method stub
+		return pDao.consulterAll();
 	}
 
 
