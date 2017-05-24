@@ -8,8 +8,5 @@
 </head>
 <body>
 
-
-<%response.sendRedirect("setting/afficherProduits");%>
-
 </body>
 </html>
