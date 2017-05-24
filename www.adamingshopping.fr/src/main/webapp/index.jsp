@@ -12,4 +12,4 @@
 <%response.sendRedirect("setting/afficherProduits");%>
 
 </body>
-</html>
+</html> 

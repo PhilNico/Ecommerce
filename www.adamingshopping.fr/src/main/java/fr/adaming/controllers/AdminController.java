@@ -49,7 +49,7 @@ public class AdminController {
 	//
 	// }
 	// 
-	//
+	// 
 	 @RequestMapping(value="/delete", method=RequestMethod.GET)
 	 public String supprimerProduit(ModelMap model,@RequestParam("idProduit")
 	 Long id){
