@@ -15,4 +15,5 @@ public interface IProduitService {
 	public Produit consulter(Produit p);
 	
 	public List<Produit> consulterAll();
+	
 }

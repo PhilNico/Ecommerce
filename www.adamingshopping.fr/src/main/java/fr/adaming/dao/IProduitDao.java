@@ -15,5 +15,8 @@ public interface IProduitDao {
 	public Produit consulter(Produit p);
 	
 	public List<Produit> consulterAll();
+	
+	
+	
 
 }

@@ -59,4 +59,5 @@ public class ProduitDaoImpl implements IProduitDao {
 		return listeProduits;
 	}
 
+	
 }

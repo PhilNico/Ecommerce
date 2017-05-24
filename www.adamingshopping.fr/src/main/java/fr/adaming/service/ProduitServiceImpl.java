@@ -41,6 +41,7 @@ public class ProduitServiceImpl implements IProduitService{
 		// TODO Auto-generated method stub
 		return pDao.consulterAll();
 	}
+	
 
 
 }
