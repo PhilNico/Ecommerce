@@ -16,8 +16,9 @@ public class ProduitDaoImpl implements IProduitDao{
 	
 	
 	@Override
-	public void ajouter(Produit P) {
-		// TODO Auto-generated method stub
+	public void ajouter(Produit p) {
+		s=sf.getCurrentSession();
+		s.save(p)
 		
 	}
 	@Override

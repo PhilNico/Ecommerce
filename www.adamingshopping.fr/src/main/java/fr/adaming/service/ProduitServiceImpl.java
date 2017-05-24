@@ -11,7 +11,7 @@ public class ProduitServiceImpl implements IProduitService{
 	private IProduitDao pDao;
 	
 	@Override
-	public void ajouter(Produit P) {
+	public void ajouter(Produit p) {
 		// TODO Auto-generated method stub
 		
 	}

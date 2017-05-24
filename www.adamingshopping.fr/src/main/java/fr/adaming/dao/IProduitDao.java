@@ -4,7 +4,7 @@ import fr.adaming.model.Produit;
 
 public interface IProduitDao {
 
-	public void ajouter(Produit P);
+	public void ajouter(Produit p);
 
 	public int supprimer(Produit p);
 
