@@ -21,6 +21,9 @@ public class Setting {
 	private IProduitService produitService; 
 	
 	
+	
+	
+	
 	@RequestMapping(value="/consulterAll", method=RequestMethod.GET)
 	public String  consulterAllProduits(ModelMap model){
 		
