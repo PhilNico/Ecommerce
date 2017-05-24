@@ -1,5 +1,7 @@
 package fr.adaming.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,8 +23,8 @@ public class Client {
 	private String tel;
 	
 	
-	@OneToMany
-	private Commande commande;
+	@OneToMany(mappedBy="client")
+	private List<Commande> listeCommande;
 
 
 	public Client() {
@@ -36,7 +38,7 @@ public class Client {
 		this.adresse = adresse;
 		this.email = email;
 		this.tel = tel;
-		this.commande = commande;
+
 	}
 
 
@@ -47,7 +49,7 @@ public class Client {
 		this.adresse = adresse;
 		this.email = email;
 		this.tel = tel;
-		this.commande = commande;
+
 	}
 
 
@@ -101,17 +103,23 @@ public class Client {
 	}
 
 
-	public Commande getCommande() {
-		return commande;
+	/**
+	 * @return the listeCommande
+	 */
+	public List<Commande> getListeCommande() {
+		return listeCommande;
 	}
 
 
-	public void setCommande(Commande commande) {
-		this.commande = commande;
+	/**
+	 * @param listeCommande the listeCommande to set
+	 */
+	public void setListeCommande(List<Commande> listeCommande) {
+		this.listeCommande = listeCommande;
 	}
-	
-	
-	// 
+
+
+
 	
 	
 	

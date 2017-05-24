@@ -1,6 +1,10 @@
 package fr.adaming.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -8,15 +12,19 @@ import javax.persistence.Table;
 @Table(name = "ligneCommandes")
 public class LigneCommande {
 
-	private int id;
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Long id;
 	private int quantite;
 	private int prix;
 
 	@ManyToOne
+	@JoinColumn(name="produitId",referencedColumnName="idProduit")
 	private Produit produit;
 
 	@ManyToOne
-	private Commande commade;
+	@JoinColumn(name="commandeId",referencedColumnName="idCommande")
+	private Commande commande;
 
 	// Constructeur vide
 	public LigneCommande() {
@@ -29,7 +37,7 @@ public class LigneCommande {
 		this.prix = prix;
 	}
 
-	public LigneCommande(int id, int quantite, int prix) {
+	public LigneCommande(Long id, int quantite, int prix) {
 		super();
 		this.id = id;
 		this.quantite = quantite;
@@ -39,14 +47,14 @@ public class LigneCommande {
 	/**
 	 * @return the id
 	 */
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
 	/**
 	 * @param id the id to set
 	 */
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -93,18 +101,20 @@ public class LigneCommande {
 	}
 
 	/**
-	 * @return the commade
+	 * @return the commande
 	 */
-	public Commande getCommade() {
-		return commade;
+	public Commande getCommande() {
+		return commande;
 	}
 
 	/**
-	 * @param commade the commade to set
+	 * @param commande the commande to set
 	 */
-	public void setCommade(Commande commade) {
-		this.commade = commade;
+	public void setCommande(Commande commande) {
+		this.commande = commande;
 	}
+
+
 	
 	
 

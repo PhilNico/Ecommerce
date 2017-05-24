@@ -1,12 +1,15 @@
 package fr.adaming.model;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -17,12 +20,17 @@ public class Commande {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int idCommande;
+	private Long idCommande;
 	
 	@Temporal(TemporalType.DATE)
 	private Date dateCommande;
 	
+	@OneToMany(mappedBy="commande")
 	private List<LigneCommande> listeLigneCommande;
+	
+	@ManyToOne
+	@JoinColumn(name="clientId",referencedColumnName="idClient")
+	private Client client;
 
 	//Constructeur vide
 	public Commande() {
@@ -34,17 +42,17 @@ public class Commande {
 		this.dateCommande = dateCommande;
 	}
 
-	public Commande(int idCommande, Date dateCommande) {
+	public Commande(Long idCommande, Date dateCommande) {
 		super();
 		this.idCommande = idCommande;
 		this.dateCommande = dateCommande;
 	}
 
-	public int getIdCommande() {
+	public Long getIdCommande() {
 		return idCommande;
 	}
 
-	public void setIdCommande(int idCommande) {
+	public void setIdCommande(Long idCommande) {
 		this.idCommande = idCommande;
 	}
 
@@ -56,9 +64,35 @@ public class Commande {
 		this.dateCommande = dateCommande;
 	}
 
+	/**
+	 * @return the listeLigneCommande
+	 */
+	public List<LigneCommande> getListeLigneCommande() {
+		return listeLigneCommande;
+	}
 
-	
-	/// comm
+	/**
+	 * @param listeLigneCommande the listeLigneCommande to set
+	 */
+	public void setListeLigneCommande(List<LigneCommande> listeLigneCommande) {
+		this.listeLigneCommande = listeLigneCommande;
+	}
+
+	/**
+	 * @return the client
+	 */
+	public Client getClient() {
+		return client;
+	}
+
+	/**
+	 * @param client the client to set
+	 */
+	public void setClient(Client client) {
+		this.client = client;
+	}
+
+
 	
 
 }

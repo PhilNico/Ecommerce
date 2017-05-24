@@ -15,7 +15,17 @@ public class ProduitDaoImpl implements IProduitDao {
 
 	@Autowired
 	private SessionFactory sf;
+	
 	private Session s;
+
+	
+	
+	/**
+	 * @param sf the sf to set
+	 */
+	public void setSf(SessionFactory sf) {
+		this.sf = sf;
+	}
 
 	@Override
 	public void ajouter(Produit p) {

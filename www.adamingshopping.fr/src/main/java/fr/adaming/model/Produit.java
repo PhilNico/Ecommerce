@@ -6,7 +6,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -26,10 +28,16 @@ public class Produit {
 	private String photo;
 	
 	
-	@OneToMany
-	private List<LigneCommande> listeCommande;
+//	@OneToMany(mappedBy="produit")
+//	private List<LigneCommande> listeCommande;
 
-
+	@OneToMany(mappedBy="produit")
+	private List<LigneCommande> listeLigneCommande;
+	
+	@ManyToOne
+	@JoinColumn(name="categorieId",referencedColumnName="idCategorie")
+	private Categorie categorie;
+	
 	public Produit() {
 		super();
 	}
@@ -44,7 +52,6 @@ public class Produit {
 		this.quantite = quantite;
 		this.selectionne = selectionne;
 		this.photo = photo;
-		this.listeCommande = listeCommande;
 	}
 
 
@@ -58,7 +65,7 @@ public class Produit {
 		this.quantite = quantite;
 		this.selectionne = selectionne;
 		this.photo = photo;
-		this.listeCommande = listeCommande;
+
 	}
 
 
@@ -132,14 +139,39 @@ public class Produit {
 	}
 
 
-	public List<LigneCommande> getListeCommande() {
-		return listeCommande;
+	/**
+	 * @return the listeLigneCommande
+	 */
+	public List<LigneCommande> getListeLigneCommande() {
+		return listeLigneCommande;
 	}
 
 
-	public void setListeCommande(List<LigneCommande> listeCommande) {
-		this.listeCommande = listeCommande;
+	/**
+	 * @param listeLigneCommande the listeLigneCommande to set
+	 */
+	public void setListeLigneCommande(List<LigneCommande> listeLigneCommande) {
+		this.listeLigneCommande = listeLigneCommande;
 	}
+
+
+	/**
+	 * @return the categorie
+	 */
+	public Categorie getCategorie() {
+		return categorie;
+	}
+
+
+	/**
+	 * @param categorie the categorie to set
+	 */
+	public void setCategorie(Categorie categorie) {
+		this.categorie = categorie;
+	}
+
+
+
 	
 }
 
