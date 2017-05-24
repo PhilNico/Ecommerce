@@ -1,31 +1,41 @@
 package fr.adaming.dao;
 
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
 import fr.adaming.model.Produit;
 
+@Repository
 public class ProduitDaoImpl implements IProduitDao{
 
+	@Autowired
+	private SessionFactory sf;
+	private Session s;
+	
+	
 	@Override
-	public Produit ajouter() {
-		// TODO methode ajouter produit dao
-		return null;
+	public void ajouter(Produit P) {
+		// TODO Auto-generated method stub
+		
 	}
-
 	@Override
-	public Produit supprimer() {
-		// TODO methode supprimer produit dao
-		return null;
-	}
-
-	@Override
-	public Produit modifier() {
-		// TODO methode modifier produit dao
-		return null;
-	}
-
-	@Override
-	public int consulter() {
-		// TODO methode consulter produit dao
+	public int supprimer(Produit p) {
+		// TODO Auto-generated method stub
 		return 0;
 	}
+	@Override
+	public Produit modifier(Produit p) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public Produit consulter(Produit p) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+
 
 }

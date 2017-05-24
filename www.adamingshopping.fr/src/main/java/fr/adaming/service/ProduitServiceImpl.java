@@ -1,31 +1,38 @@
 package fr.adaming.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import fr.adaming.dao.IProduitDao;
 import fr.adaming.model.Produit;
 
 public class ProduitServiceImpl implements IProduitService{
-
+	
+	@Autowired
+	private IProduitDao pDao;
+	
 	@Override
-	public Produit ajouter() {
-		// TODO methode ajouter produit service
-		return null;
+	public void ajouter(Produit P) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
-	public Produit supprimer() {
-		// TODO methode supprimer produit service
-		return null;
-	}
-
-	@Override
-	public Produit modifier() {
-		// TODO methode modifier produit service
-		return null;
-	}
-
-	@Override
-	public int consulter() {
-		// TODO methode consulter produit service
+	public int supprimer(Produit p) {
+		// TODO Auto-generated method stub
 		return 0;
 	}
+
+	@Override
+	public Produit modifier(Produit p) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Produit consulter(Produit p) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 }
