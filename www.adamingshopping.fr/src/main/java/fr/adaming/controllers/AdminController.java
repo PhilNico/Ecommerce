@@ -65,18 +65,19 @@ public class AdminController {
 	 return "afficherProduits";
 	 }
 	 
-	 
-	 public String afficherFormProduit()
-	
-	 @RequestMapping(value="/modifier", method=RequestMethod.POST)
-	 public String modifierProduit(ModelMap model, @ModelAttribute("prod")
-	 Produit p){
-	
-	 produitService.modifier(p);
-	
-	 return "afficherProduits";
-	
-	 }
+
+}
+//	 public String afficherFormProduit()
+//	
+//	 @RequestMapping(value="/modifier", method=RequestMethod.POST)
+//	 public String modifierProduit(ModelMap model, @ModelAttribute("prod")
+//	 Produit p){
+//	
+//	 produitService.modifier(p);
+//	
+//	 return "afficherProduits";
+//	
+//	 }
 	
 	 
 	 
@@ -92,4 +93,3 @@ public class AdminController {
 	//
 	// }
 
-}

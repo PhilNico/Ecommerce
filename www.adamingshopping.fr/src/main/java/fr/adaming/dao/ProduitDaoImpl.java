@@ -65,8 +65,7 @@ public class ProduitDaoImpl implements IProduitDao {
 		s=sf.getCurrentSession();
 		String req="FROM Produit";
 		Query query=s.createQuery(req);
-		List<Produit> listeProduits=query.list();
-		return listeProduits;
+		return query.list();
 	}
 
 	
