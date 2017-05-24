@@ -48,7 +48,7 @@ public class AdminController {
 	// return "afficherUnProduit";
 	//
 	// }
-	//
+	// 
 	//
 	 @RequestMapping(value="/delete", method=RequestMethod.GET)
 	 public String supprimerProduit(ModelMap model,@RequestParam("idProduit")
@@ -66,7 +66,7 @@ public class AdminController {
 	 }
 	 
 	 
-	 public String afficherFormProduit()
+	 //public String afficherFormProduit(Model)
 	
 	 @RequestMapping(value="/modifier", method=RequestMethod.POST)
 	 public String modifierProduit(ModelMap model, @ModelAttribute("prod")
