@@ -56,13 +56,7 @@ public class Commande {
 		this.dateCommande = dateCommande;
 	}
 
-	public List<Produit> getListeProduits() {
-		return listeProduits;
-	}
 
-	public void setListeProduits(List<Produit> listeProduits) {
-		this.listeProduits = listeProduits;
-	}
 	
 	/// comm
 	
