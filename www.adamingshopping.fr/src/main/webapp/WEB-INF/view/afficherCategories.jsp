@@ -31,7 +31,7 @@
 					<td>${categorie.idCategorie}</td>
 					<td>${categorie.description}</td>
 					<td>${categorie.photo}</td>
-<%-- 					<td><a href="${pageContext.request.contextPath}/setting/delete?idProduit=${produit.idProduit}">Supprimer</a> | modifier</td> --%>
+					<td><a href="${pageContext.request.contextPath}/setting/delete?idProduit=${produit.idProduit}">Supprimer</a> | modifier</td>
 				</tr>
 			</tbody>
 			</c:forEach>

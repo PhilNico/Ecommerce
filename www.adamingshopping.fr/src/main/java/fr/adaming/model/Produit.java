@@ -28,8 +28,7 @@ public class Produit {
 	private String photo;
 	
 	
-//	@OneToMany(mappedBy="produit")
-//	private List<LigneCommande> listeCommande;
+
 
 	@OneToMany(mappedBy="produit")
 	private List<LigneCommande> listeLigneCommande;

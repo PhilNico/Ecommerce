@@ -9,7 +9,10 @@
 <body>
 
 
-<%response.sendRedirect("setting/afficherProduits");%>
+<h1>Pages Categories: <a href="${pageContext.request.contextPath}/client/afficherCategories">Cliquer ici</a></h1>
+
+
+<h1>Pages Afficher Produits: <a href="${pageContext.request.contextPath}/setting/afficherProduits">Cliquer ici</a></h1>
 
 </body>
 </html> 
