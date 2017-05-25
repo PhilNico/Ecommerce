@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -28,10 +29,17 @@ public class ClientController {
 	}
 
 	@RequestMapping(value = "/afficherCategories", method = RequestMethod.GET)
-	public String afficherListProduit(ModelMap model) {
+	public String afficherListCategorie(ModelMap model) {
 		List<Categorie> listeCategorie = cSer.getAllCategories();
 		model.addAttribute("listeCategorie", listeCategorie);
 		return "afficherCategories";
 	}
-
+	
+	@RequestMapping(value = "/afficherProduitCat", method = RequestMethod.GET)
+	public String afficherListProduitByCat(ModelMap model, Produit p) {
+		List<Produit> listeProduitsCat = cSer.getAllProduitByCategories(p);
+		model.addAttribute("listeCategorie", listeProduitsCat);
+		return "afficherProduitCat";
+	}
+	
 }
