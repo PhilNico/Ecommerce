@@ -19,7 +19,7 @@ import fr.adaming.service.IProduitService;
 
 @Controller
 @RequestMapping("/setting")
-public class AdminController {
+public class AdminProdController {
 
 	@Autowired
 	private IProduitService produitService;
