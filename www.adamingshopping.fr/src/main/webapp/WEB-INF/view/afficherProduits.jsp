@@ -5,9 +5,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link rel="stylesheet" href="<c:url value="/assets/bootstrap.min.css"/>"/>
-<link rel="stylesheet" href="<c:url value="/assets/bootstrap.min.js"/>"/>
-<link rel="stylesheet" href="<c:url value="/assets/jquery-3.2.1.min.js"/>"/>
+<link rel="stylesheet" href="<c:url value="/assets/bootstrap.min.css"/>" />
+<link rel="stylesheet" href="<c:url value="/assets/bootstrap.min.js"/>" />
+<link rel="stylesheet"
+	href="<c:url value="/assets/jquery-3.2.1.min.js"/>" />
 <title>Insert title here</title>
 </head>
 <body>
@@ -36,16 +37,24 @@
 						<td>${produit.prix}</td>
 						<td>${produit.quantite}</td>
 						<td>${produit.photo}</td>
-						<td><a href="${pageContext.request.contextPath}/setting/delete?idProduit=${produit.idProduit}">Supprimer</a> | <a href="${pageContext.request.contextPath}/setting/modifierProduit?idProduit=${produit.idProduit}">modifier</a></td>
+						<td><a
+							href="${pageContext.request.contextPath}/setting/delete?idProduit=${produit.idProduit}">Supprimer</a>
+							| <a
+							href="${pageContext.request.contextPath}/setting/modifierProduit?idProduit=${produit.idProduit}">modifier</a></td>
 					</tr>
 				</tbody>
 			</c:forEach>
 		</table>
 	</div>
-	
-	<a href="${pageContext.request.contextPath}/setting/formulaireProduit" style="text-align: center;" >ajouter un produit</a>
-	<br/>
-	<a href="${pageContext.request.contextPath}/setting/rechercheProduit" style="text-align: center;" >rechercher un produit</a>
+
+	<a href="${pageContext.request.contextPath}/setting/formulaireProduit"
+		style="text-align: center;">ajouter un produit</a>
+	<br />
+	<a href="${pageContext.request.contextPath}/setting/rechercheProduit"
+		style="text-align: center;">rechercher un produit</a>
+	<br />
+	<a href="${pageContext.request.contextPath}/client/rechercheParMot"
+		style="text-align: center;">rechercher un produit par mot clé</a>
 
 </body>
 </html>

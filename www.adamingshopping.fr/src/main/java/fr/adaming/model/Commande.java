@@ -1,5 +1,6 @@
 package fr.adaming.model;
 
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
@@ -72,10 +73,10 @@ public class Commande {
 	}
 
 	/**
-	 * @param listeLigneCommande the listeLigneCommande to set
+	 * @param collection the listeLigneCommande to set
 	 */
-	public void setListeLigneCommande(List<LigneCommande> listeLigneCommande) {
-		this.listeLigneCommande = listeLigneCommande;
+	public void setListeLigneCommande(List<LigneCommande> ligneCommande) {
+		this.listeLigneCommande =ligneCommande;
 	}
 
 	/**

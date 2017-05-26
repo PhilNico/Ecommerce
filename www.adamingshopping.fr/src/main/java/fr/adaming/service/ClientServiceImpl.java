@@ -24,9 +24,9 @@ public class ClientServiceImpl implements IClientService {
 	}
 
 	@Override
-	public List<Produit> getAllProduitByCategories(Produit p) {
+	public List<Produit> getAllProduitByCategories(Categorie c) {
 		// TODO Auto-generated method stub
-		return cDao.getAllProduitByCategories(p);
+		return cDao.getAllProduitByCategories(c);
 	}
 
 	@Override
@@ -38,7 +38,7 @@ public class ClientServiceImpl implements IClientService {
 	@Override
 	public Produit getProduitByKeyWord(Produit p) {
 		// TODO Auto-generated method stub
-		return null;
+		return cDao.getProduitByKeyWord(p);
 	}
 
 	@Override
@@ -51,6 +51,18 @@ public class ClientServiceImpl implements IClientService {
 	public Produit deleteProduitPanier(Produit p) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public Categorie consulter(int id) {
+		// TODO Auto-generated method stub
+		return cDao.consulter(id);
+	}
+
+	@Override
+	public Produit consulterP(int id) {
+		// TODO Auto-generated method stub
+		return cDao.consulterP(id);
 	}
 
 }

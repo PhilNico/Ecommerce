@@ -9,6 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import fr.adaming.model.Categorie;
+import fr.adaming.model.Client;
+import fr.adaming.model.Commande;
+import fr.adaming.model.LigneCommande;
+import fr.adaming.model.Panier;
 import fr.adaming.model.Produit;
 
 @Repository
@@ -36,38 +40,68 @@ public class ClientDaoImpl implements IClientDao{
 	}
 
 	@Override
-	public List<Produit> getAllProduitByCategories(Produit p) {
+	public List<Produit> getAllProduitByCategories(Categorie c) {
 		s=sf.getCurrentSession();
 		String req="FROM Produit as p WHERE p.categorie=p:pC";
 		Query query=s.createQuery(req);
-		query.setParameter("pC", p.getCategorie());
+		query.setParameter("pC", c.getIdCategorie());
 		List<Produit> listeProduit=query.list();
 		return listeProduit;
 	}
 
 	@Override
-	public Produit getProduitSelect(Produit P) {
-		// TODO Auto-generated method stub
-		return null;
+	public Produit getProduitSelect(Produit p) {
+		s=sf.getCurrentSession();
+		return (Produit) s.get(Produit.class, p.getIdProduit() );
 	}
 
 	@Override
 	public Produit getProduitByKeyWord(Produit p) {
+		s=sf.getCurrentSession();
+		String req="FROM Produit as p WHERE p.designation=p:pD";
+		Query query=s.createQuery(req);
+		query.setParameter("pD", p.getDesignation());
+		return (Produit) query.uniqueResult();
+	}
+
+	@Override
+	public Produit addProduitToPanier(Produit p, Client c) {
+		s=sf.getCurrentSession();
+		s.save(p);
+		return null;
+	}
+
+	@Override
+	public Produit deleteProduitPanier(Produit p, Client c) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Produit addProduitToPanier(Produit p) {
-		// TODO Auto-generated method stub
-		return null;
+	public Commande enregisterCommande(Panier panier, Client c) {
+		s=sf.getCurrentSession();
+		s.save(c);
+		Commande commande=new Commande();
+		commande.setClient(c);
+		commande.setListeLigneCommande((List<LigneCommande>) panier.getItems());
+		return commande;
 	}
 
 	@Override
-	public Produit deleteProduitPanier(Produit p) {
-		// TODO Auto-generated method stub
-		return null;
+	public Categorie consulter(int id) {
+		s=sf.getCurrentSession();
+		Categorie c = (Categorie) s.get(Categorie.class, id);
+		return c;
+		}
+	
+	@Override
+	public Produit consulterP(int id) {
+		s=sf.getCurrentSession();
+		Produit p = (Produit) s.get(Produit.class, id);
+		return p;
+		}
 	}
+
+
 
 	
-}

@@ -16,7 +16,7 @@ public class LigneCommande {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	private int quantite;
-	private int prix;
+	private double prix;
 
 	@ManyToOne
 	@JoinColumn(name="produitId",referencedColumnName="idProduit")
@@ -75,14 +75,14 @@ public class LigneCommande {
 	/**
 	 * @return the prix
 	 */
-	public int getPrix() {
+	public double getPrix() {
 		return prix;
 	}
 
 	/**
 	 * @param prix the prix to set
 	 */
-	public void setPrix(int prix) {
+	public void setPrix(double prix) {
 		this.prix = prix;
 	}
 

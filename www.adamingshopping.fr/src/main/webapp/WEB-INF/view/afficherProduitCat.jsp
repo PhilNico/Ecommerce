@@ -28,7 +28,7 @@
 					<th>Opération</th>
 				</tr>
 			</thead>
-			<c:forEach var="prod" items="${listeProduitsCat}">
+			<c:forEach var="prod" items="${pListe}">
 				<tbody>
 					<tr>
 						<td>${prod.idProduit}</td>
@@ -37,6 +37,7 @@
 						<td>${prod.prix}</td>
 						<td>${prod.quantite}</td>
 						<td>${prod.photo}</td>
+						
 					</tr>
 				</tbody>
 			</c:forEach>
