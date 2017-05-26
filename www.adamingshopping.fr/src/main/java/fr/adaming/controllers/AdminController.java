@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import fr.adaming.model.Categorie;
 import fr.adaming.model.Produit;
 import fr.adaming.service.IProduitService;
 
@@ -27,8 +28,6 @@ public class AdminController {
 		this.produitService = produitService;
 	}
 
-
-
 	@RequestMapping(value = "/afficherProduits", method = RequestMethod.GET)
 	public String afficherListProduit(ModelMap model) {
 		List<Produit> listeProduit = produitService.consulterAll();
@@ -37,74 +36,82 @@ public class AdminController {
 
 	}
 
-	// @RequestMapping(value="/consulterProduit", method=RequestMethod.POST)
-	// public String consulterProduit(ModelMap model, @ModelAttribute("prod")
-	// Produit p ){
-	//
-	// Produit prod_rec = produitService.consulter(p);
-	// List<Produit> listeUnProduit = new ArrayList<Produit>();
-	// listeUnProduit.add(prod_rec);
-	// model.addAttribute("listeUnProduit", listeUnProduit);
-	// return "afficherUnProduit";
-	//
-	// }
-	// 
-	// 
-	 @RequestMapping(value="/delete", method=RequestMethod.GET)
-	 public String supprimerProduit(ModelMap model,@RequestParam("idProduit")
-	 Long id){
-	
-	 Produit p_rec=new Produit();
-	 p_rec.setIdProduit(id);
-	 Produit p = produitService.consulter(p_rec);
-	 produitService.supprimer(p);
-	 
-	 
-	 List<Produit> listeProduit = produitService.consulterAll();
-	 model.addAttribute("listeProduit", listeProduit);
-	 return "afficherProduits";
-	 }
-	 
+	@RequestMapping(value = "/delete", method = RequestMethod.GET)
+	public String supprimerProduit(ModelMap model, @RequestParam("idProduit") Long id) {
 
-	 
-	 //public String afficherFormProduit(Model)
-	
-	 @RequestMapping(value="/modifier", method=RequestMethod.POST)
-	 public String modifierProduit(ModelMap model, @ModelAttribute("prod")
-	 Produit p){
-	
-	 produitService.modifier(p);
-	
-	 return "afficherProduits";
-	
-	 }
+		Produit p_rec = new Produit();
+		p_rec.setIdProduit(id);
+		Produit p = produitService.consulter(p_rec);
+		produitService.supprimer(p);
 
+		List<Produit> listeProduit = produitService.consulterAll();
+		model.addAttribute("listeProduit", listeProduit);
+		return "afficherProduits";
+	}
+
+	@RequestMapping(value = "/formulaireProduit", method = RequestMethod.GET)
+	public ModelAndView afficherFormAjout() {
+		return new ModelAndView("formulaireProduit", "pProduit", new Produit());
+	}
+
+	@RequestMapping(value = "/ajouterProduit", method = RequestMethod.POST)
+	public String ajouterProduit(ModelMap model, @ModelAttribute("pProduit") Produit p) {
+
+		produitService.ajouter(p);
+
+		List<Produit> listeProduit = produitService.consulterAll();
+		model.addAttribute("listeProduit", listeProduit);
+
+		return "afficherProduits";
+	}
 
 }
-//	 public String afficherFormProduit()
-//	
-//	 @RequestMapping(value="/modifier", method=RequestMethod.POST)
-//	 public String modifierProduit(ModelMap model, @ModelAttribute("prod")
-//	 Produit p){
-//	
-//	 produitService.modifier(p);
-//	
-//	 return "afficherProduits";
-//	
-//	 }
 
-	
-	 
-	 
-	 
-	 
-	// @RequestMapping(value="/ajouter", method=RequestMethod.POST)
-	// public String ajouterProduit(ModelMap model,
-	// @ModelAttribute("prod")Produit p){
-	//
-	// produitService.ajouter(p);
-	//
-	// return "afficherProduits";
-	//
-	// }
+//
+// @RequestMapping(value="/modifier", method=RequestMethod.POST)
+// public String modifierProduit(ModelMap model, @ModelAttribute("prod")
+// Produit p){
+//
+// produitService.modifier(p);
+//
+// return "afficherProduits";
+//
+// }
 
+// @RequestMapping(value="/consulterProduit", method=RequestMethod.POST)
+// public String consulterProduit(ModelMap model, @ModelAttribute("prod")
+// Produit p ){
+//
+// Produit prod_rec = produitService.consulter(p);
+// List<Produit> listeUnProduit = new ArrayList<Produit>();
+// listeUnProduit.add(prod_rec);
+// model.addAttribute("listeUnProduit", listeUnProduit);
+// return "afficherUnProduit";
+//
+// }
+//
+//
+
+// public String afficherFormProduit(Model)
+
+// public String afficherFormProduit()
+//
+// @RequestMapping(value="/modifier", method=RequestMethod.POST)
+// public String modifierProduit(ModelMap model, @ModelAttribute("prod")
+// Produit p){
+//
+// produitService.modifier(p);
+//
+// return "afficherProduits";
+//
+// }
+
+// @RequestMapping(value="/ajouter", method=RequestMethod.POST)
+// public String ajouterProduit(ModelMap model,
+// @ModelAttribute("prod")Produit p){
+//
+// produitService.ajouter(p);
+//
+// return "afficherProduits";
+//
+// }

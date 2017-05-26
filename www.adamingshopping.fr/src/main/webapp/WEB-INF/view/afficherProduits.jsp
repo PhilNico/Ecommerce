@@ -7,8 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" href="<c:url value="/assets/bootstrap.min.css"/>"/>
 <link rel="stylesheet" href="<c:url value="/assets/bootstrap.min.js"/>"/>
-<link rel="stylesheet"
-	href="<c:url value="/assets/jquery-3.2.1.min.js"/>"/>
+<link rel="stylesheet" href="<c:url value="/assets/jquery-3.2.1.min.js"/>"/>
 <title>Insert title here</title>
 </head>
 <body>
@@ -45,6 +44,8 @@
 			</c:forEach>
 		</table>
 	</div>
+	
+	<a href="${pageContext.request.contextPath}/setting/formulaireProduit" style="text-align: center;" >ajouter un produit</a>
 
 </body>
 </html>

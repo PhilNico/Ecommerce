@@ -42,8 +42,10 @@ public class Produit {
 	}
 
 
-	public Produit(String designation, String description, double prix, int quantite, boolean selectionne, String photo,
-			List<LigneCommande> listeCommande) {
+
+
+	public Produit(String designation, String description, double prix, int quantite, boolean selectionne,
+			String photo) {
 		super();
 		this.designation = designation;
 		this.description = description;
@@ -54,8 +56,12 @@ public class Produit {
 	}
 
 
+
+
+
+
 	public Produit(Long idProduit, String designation, String description, double prix, int quantite,
-			boolean selectionne, String photo, List<LigneCommande> listeCommande) {
+			boolean selectionne, String photo) {
 		super();
 		this.idProduit = idProduit;
 		this.designation = designation;
@@ -64,8 +70,9 @@ public class Produit {
 		this.quantite = quantite;
 		this.selectionne = selectionne;
 		this.photo = photo;
-
 	}
+
+
 
 
 	public Long getIdProduit() {
@@ -137,6 +144,8 @@ public class Produit {
 		this.photo = photo;
 	}
 
+	
+	
 
 	/**
 	 * @return the listeLigneCommande
