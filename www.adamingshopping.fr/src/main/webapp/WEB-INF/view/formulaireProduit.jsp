@@ -15,10 +15,12 @@
 <body>
 
 <h2>Produits</h2>
-		<p>Formulaire d'ajout de produit:</p>
+		<p>Formulaire d'ajout ou de modification de produit:</p>
 
 <form:form action="ajouterProduit" modelAttribute="pProduit" method="POST" class="form-horizontal">
  
+ 
+      <form:input path="idProduit" type="hidden"/>
 
  
   <div class="form-group">
@@ -60,7 +62,7 @@
  
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
-      <button type="submit" class="btn btn-default">Ajouter</button>
+      <button type="submit" class="btn btn-default">Ajouter/ modifier</button>
     </div>
   </div>
 

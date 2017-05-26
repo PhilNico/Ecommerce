@@ -53,16 +53,53 @@ public class AdminController {
 	public ModelAndView afficherFormAjout() {
 		return new ModelAndView("formulaireProduit", "pProduit", new Produit());
 	}
+	
+	
 
 	@RequestMapping(value = "/ajouterProduit", method = RequestMethod.POST)
 	public String ajouterProduit(ModelMap model, @ModelAttribute("pProduit") Produit p) {
 
-		produitService.ajouter(p);
-
+		
+		if(p.getIdProduit()==null){
+			produitService.ajouter(p);
+		}else{
+			produitService.modifier(p);
+		}
+		
 		List<Produit> listeProduit = produitService.consulterAll();
 		model.addAttribute("listeProduit", listeProduit);
 
 		return "afficherProduits";
+	}
+	
+	@RequestMapping(value="/modifierProduit", method=RequestMethod.GET)
+	public ModelAndView afficherFormModif(ModelMap model, @RequestParam("idProduit") Long id){
+		
+		
+		
+		Produit p_rec= new Produit();
+		p_rec.setIdProduit(id);
+		p_rec=produitService.consulter(p_rec);
+		
+		return new ModelAndView("formulaireProduit", "pProduit", p_rec);
+		
+	}
+	
+	@RequestMapping(value="/rechercheProduit", method=RequestMethod.GET)
+	public ModelAndView afficherFormRecherche(){
+		return new ModelAndView("rechercheProduit","pProduit", new Produit());
+	}
+	
+	@RequestMapping(value="/rechercheProduit", method=RequestMethod.POST)
+	public String rechercheProduit(ModelMap model, @ModelAttribute("pProduit") Produit p ){
+		
+		Produit p_rec = produitService.consulter(p);
+		List<Produit> listeProduit = new ArrayList<Produit>();
+		listeProduit.add(p_rec);
+		model.addAttribute("listeProduit", listeProduit);
+		
+		return "rechercheProduit";
+		
 	}
 
 }
