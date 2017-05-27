@@ -12,6 +12,8 @@
 <title>Insert title here</title>
 </head>
 <body>
+<%@include file="../templates/navBar.jsp" %>
+
 
 	<div class="container">
 		<h2>Hover Rows</h2>

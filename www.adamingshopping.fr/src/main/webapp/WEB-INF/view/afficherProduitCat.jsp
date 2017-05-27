@@ -13,6 +13,8 @@
 </head>
 <body>
 
+<%@include file="../templates/navBar.jsp" %>
+
 	<div class="container">
 		<h2>Produits</h2>
 		<p>Voici la liste des Produits:</p>

@@ -32,7 +32,7 @@
 <!--           </ul> -->
 <!--         </li> -->
       </ul>
-      <form:form class="navbar-form navbar-left" action="client/rechercherParMot" modelAttribute="mProduit" method="POST">
+      <form:form class="navbar-form navbar-left" action="rechercherParMot" modelAttribute="mProduit" method="POST">
         <div class="form-group">
           <form:input type="text" class="form-control" placeholder="Search" path="designation"/>
         </div>
