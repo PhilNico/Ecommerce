@@ -17,9 +17,9 @@ public interface IClientDao {
 	
 	public Produit consulterP(Produit p);
 	
-	public List<Produit> getAllProduitByCategories(Produit p);
+	public List<Produit> getAllProduitByCategories(Long idCategorie);
 	
-	public Produit getProduitSelect(Produit p);
+	public List<Produit> getProduitSelect();
 	
 	public Produit getProduitByKeyWord (Produit p);
 	

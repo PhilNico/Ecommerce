@@ -40,21 +40,19 @@ public class ClientDaoImpl implements IClientDao{
 	}
 
 	@Override
-	public List<Produit> getAllProduitByCategories(Produit p) {
+	public List<Produit> getAllProduitByCategories(Long idCategorie) {
 		s=sf.getCurrentSession();
-		String req="FROM Produit as p WHERE p.categorie=:pC";
+		String req="FROM Produit as p WHERE p.categorie.idCategorie=:pC";
 		Query query=s.createQuery(req);
-		query.setParameter("pC", p.getCategorie());
-		List<Produit> listeProduit=query.list();
-		return listeProduit;
+		query.setParameter("pC", idCategorie);
+		return query.list();
 	}
 
 	@Override
-	public Produit getProduitSelect(Produit p) {
-		String req="FROM Produit as p WHERE p.selectionne=1";
+	public List<Produit> getProduitSelect() {
+		String req="FROM Produit as p WHERE p.selectionne=true";
 		Query query=s.createQuery(req);
-		query.setParameter("pD", p.getDesignation());
-		return (Produit) query.uniqueResult();
+		return query.list();
 	}
 
 	@Override
@@ -106,6 +104,8 @@ public class ClientDaoImpl implements IClientDao{
 		Produit p_rec=(Produit) s.get(Produit.class, p.getIdProduit());
 		return p_rec;
 	}
+
+
 	}
 
 

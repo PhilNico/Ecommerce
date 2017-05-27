@@ -8,6 +8,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import fr.adaming.dao.IClientDao;
 import fr.adaming.model.Categorie;
+import fr.adaming.model.Client;
+import fr.adaming.model.Commande;
+import fr.adaming.model.Panier;
 import fr.adaming.model.Produit;
 @Service
 @Transactional
@@ -24,15 +27,15 @@ public class ClientServiceImpl implements IClientService {
 	}
 
 	@Override
-	public List<Produit> getAllProduitByCategories(Produit p) {
+	public List<Produit> getAllProduitByCategories(Long idCategorie){
 		// TODO Auto-generated method stub
-		return cDao.getAllProduitByCategories(p);
+		return cDao.getAllProduitByCategories(idCategorie);
 	}
 
 	@Override
-	public Produit getProduitSelect(Produit P) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Produit> getProduitSelect() {
+		
+		return cDao.getProduitSelect();
 	}
 
 	@Override
@@ -41,17 +44,6 @@ public class ClientServiceImpl implements IClientService {
 		return cDao.getProduitByKeyWord(p);
 	}
 
-	@Override
-	public Produit addProduitToPanier(Produit p) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Produit deleteProduitPanier(Produit p) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public Categorie consulter(Categorie c) {
@@ -64,5 +56,25 @@ public class ClientServiceImpl implements IClientService {
 		// TODO Auto-generated method stub
 		return cDao.consulterP(p);
 	}
+
+	@Override
+	public Produit addProduitToPanier(Produit p, Client c) {
+		// TODO Auto-generated method stub
+		return cDao.addProduitToPanier(p, c);
+	}
+
+	@Override
+	public Produit deleteProduitPanier(Produit p, Client c) {
+		// TODO Auto-generated method stub
+		return cDao.deleteProduitPanier(p, c);
+	}
+
+	@Override
+	public Commande enregisterCommande(Panier panier, Client c) {
+		// TODO Auto-generated method stub
+		return cDao.enregisterCommande(panier, c);
+	}
+
+
 
 }

@@ -32,12 +32,14 @@
 <!--           </ul> -->
 <!--         </li> -->
       </ul>
-      <form:form class="navbar-form navbar-left" action="rechercherParMot" modelAttribute="mProduit" method="POST">
+      
+      <form:form class="navbar-form navbar-left" action="rechercheParMot" modelAttribute="mProduit" method="POST">
         <div class="form-group">
-          <form:input type="text" class="form-control" placeholder="Search" path="designation"/>
+          <form:input type="text" class="form-control" id="inputmot" placeholder="Search" path="designation"/>
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
       </form:form>
+      
       <ul class="nav navbar-nav navbar-right">
         <li><a href="login">Accés administrateur</a></li>
 <!--         <li class="dropdown"> -->

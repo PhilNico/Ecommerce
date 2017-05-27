@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +13,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%@include file="../templates/navBar.jsp" %>
+<%-- 	<%@include file="../templates/navBar.jsp"%> --%>
 
 
 	<div class="container">
@@ -33,15 +34,18 @@
 						<td>${categorie.idCategorie}</td>
 						<td>${categorie.description}</td>
 						<td>${categorie.photo}</td>
-						<td><a href="${pageContext.request.contextPath}/client/afficherProduitCat?categorieId=${produit.categorieId}">Afficher Produit</a>
+						<td><a
+							href="${pageContext.request.contextPath}/client/afficherProduitCat?categorieId=${produit.categorieId}">Afficher
+								Produit</a>
 					</tr>
 				</tbody>
 			</c:forEach>
 		</table>
 	</div>
 
-	<br/>
-	<a href="${pageContext.request.contextPath}/client/rechercheParMot" style="text-align: center;" >rechercher un produit par mot clé</a>
+	<br />
+	<a href="${pageContext.request.contextPath}/client/rechercheParMot"
+		style="text-align: center;">rechercher un produit par mot clé</a>
 
 </body>
 </html>

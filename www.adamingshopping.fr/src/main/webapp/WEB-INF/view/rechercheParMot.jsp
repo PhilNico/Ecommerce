@@ -49,20 +49,20 @@
 
 
 
-<form:form action="rechercheParMot" modelAttribute="mProduit" method="POST" class="form-horizontal">
-<div class="form-group">
-    <label for="inputmot" class="col-sm-2 control-label">Mot clé</label>
-    <div class="col-sm-8">
-      <form:input type="text" class="form-control" id="inputmot" placeholder="Mot Clé" path="designation"/>
-    </div>
-  </div>
+<%-- <form:form action="rechercheParMot" modelAttribute="mProduit" method="POST" class="form-horizontal"> --%>
+<!-- <div class="form-group"> -->
+<!--     <label for="inputmot" class="col-sm-2 control-label">Mot clé</label> -->
+<!--     <div class="col-sm-8"> -->
+<%--       <form:input type="text" class="form-control" id="inputmot" placeholder="Mot Clé" path="designation"/> --%>
+<!--     </div> -->
+<!--   </div> -->
   
-   <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-      <button type="submit" class="btn btn-default">Rechercher</button>
-    </div>
-  </div>
-</form:form>
+<!--    <div class="form-group"> -->
+<!--     <div class="col-sm-offset-2 col-sm-10"> -->
+<!--       <button type="submit" class="btn btn-default">Rechercher</button> -->
+<!--     </div> -->
+<!--   </div> -->
+<%-- </form:form> --%>
 
 	<a href="${pageContext.request.contextPath}/setting/formulaireProduit" style="text-align: center;" >ajouter un produit</a>
 	<br/>

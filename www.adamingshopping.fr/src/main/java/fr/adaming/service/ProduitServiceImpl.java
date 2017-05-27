@@ -2,7 +2,6 @@ package fr.adaming.service;
 
 import java.util.List;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -12,15 +11,15 @@ import fr.adaming.model.Produit;
 
 @Service("pService")
 @Transactional
-public class ProduitServiceImpl implements IProduitService{
-	
+public class ProduitServiceImpl implements IProduitService {
+
 	@Autowired
 	private IProduitDao pDao;
-	
+
 	@Override
 	public void ajouter(Produit p) {
 		pDao.ajouter(p);
-		
+
 	}
 
 	@Override
@@ -46,7 +45,5 @@ public class ProduitServiceImpl implements IProduitService{
 		// TODO Auto-generated method stub
 		return pDao.consulterAll();
 	}
-	
-
 
 }

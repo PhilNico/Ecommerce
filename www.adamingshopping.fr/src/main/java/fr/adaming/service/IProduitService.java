@@ -13,7 +13,7 @@ public interface IProduitService {
 	public Produit modifier(Produit p);
 
 	public Produit consulter(Produit p);
-	
+
 	public List<Produit> consulterAll();
-	
+
 }
