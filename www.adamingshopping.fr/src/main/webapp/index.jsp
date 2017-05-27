@@ -8,8 +8,11 @@
 </head>
 <body>
 
-
 <h1>Pages Categories coté client: <a href="${pageContext.request.contextPath}/client/afficherCategories">Cliquer ici</a></h1>
+<h1>Accueil: <a href="${pageContext.request.contextPath}/client/accueil">Cliquer ici</a></h1>
+
+
+
 
 
 <h1>Pages Afficher Produits coté admin: <a href="${pageContext.request.contextPath}/setting/afficherProduits">Cliquer ici</a></h1>

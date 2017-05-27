@@ -106,4 +106,10 @@ public class ClientController {
 		return "rechercheParMot";
 		
 	}
+	
+	@RequestMapping(value="/accueil", method=RequestMethod.GET)
+	public ModelAndView afficherAccueil(){
+		return new ModelAndView("accueil","mProduit", new Produit());
+	
+	}
 }
