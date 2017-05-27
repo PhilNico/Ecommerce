@@ -48,11 +48,11 @@
 
 
 
-<form:form action="rechercheProduit" modelAttribute="mProduit" method="POST" class="form-horizontal">
+<form:form action="rechercherParMot" modelAttribute="mProduit" method="POST" class="form-horizontal">
 <div class="form-group">
-    <label for="inputId" class="col-sm-2 control-label">Mot clé</label>
+    <label for="inputmot" class="col-sm-2 control-label">Mot clé</label>
     <div class="col-sm-8">
-      <form:input type="text" class="form-control" id="inputId" placeholder="mot" path="designation"/>
+      <form:input type="text" class="form-control" id="inputmot" placeholder="mot" path="designation"/>
     </div>
   </div>
   

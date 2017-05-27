@@ -65,18 +65,32 @@ public class ClientController {
 		return "afficherProduitCat";
 	}
 	
+
+	
+//	@RequestMapping(value="/rechercheParMot", method=RequestMethod.POST)
+//	public String rechercheProduit(ModelMap model, @ModelAttribute("mProduit") Produit p){
+//		
+//		Produit p_rec = cSer.getProduitByKeyWord(p);
+//		List<Produit> listeProduit = new ArrayList<Produit>();
+//		listeProduit.add(p_rec);
+//		model.addAttribute("listeProduit", listeProduit);
+//		
+//		return "rechercheParMot";
+//		
+//	}
+	
 	@RequestMapping(value="/rechercheParMot", method=RequestMethod.GET)
-	public ModelAndView afficherFormRecherche(){
+	public ModelAndView afficherFormRechercheParMot(){
 		return new ModelAndView("rechercheParMot","mProduit", new Produit());
 	}
 	
 	@RequestMapping(value="/rechercheParMot", method=RequestMethod.POST)
-	public String rechercheProduit(ModelMap model, @ModelAttribute("mProduit") Produit p){
-		
+	public String rechercheParMot(ModelMap model, @ModelAttribute("mProduit") Produit p){
+
 		Produit p_rec = cSer.getProduitByKeyWord(p);
-		List<Produit> listeProduit = new ArrayList<Produit>();
-		listeProduit.add(p_rec);
-		model.addAttribute("listeProduit", listeProduit);
+		List<Produit> produitListe = new ArrayList<Produit>();
+		produitListe.add(p_rec);
+		model.addAttribute("listeProduit", produitListe);
 		
 		return "rechercheParMot";
 		
