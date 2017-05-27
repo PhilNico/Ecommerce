@@ -9,9 +9,9 @@ public interface IClientService {
 
 	public List<Categorie> getAllCategories();
 	
-	public Produit consulterP(int id);
+	public Produit consulterP(Produit p);
 
-	public Categorie consulter(int id);
+	public Categorie consulter(Categorie c);
 	
 	public List<Produit> getAllProduitByCategories(Produit p);
 

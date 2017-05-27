@@ -13,9 +13,9 @@ public interface IClientDao {
 	
 	public List<Categorie> getAllCategories();
 	
-	public Categorie consulter(int id);
+	public Categorie consulter(Categorie c);
 	
-	public Produit consulterP(int id);
+	public Produit consulterP(Produit p);
 	
 	public List<Produit> getAllProduitByCategories(Produit p);
 	

@@ -16,7 +16,7 @@ public class Categorie {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int idCategorie;
+	private Long idCategorie;
 	private String nomCategorie;
 	@Lob
 	private byte[] photo;
@@ -39,7 +39,7 @@ public class Categorie {
 	}
 
 	// Constructeur param avec id
-	public Categorie(int idCategorie, String nomCategorie, byte[] photo, String description) {
+	public Categorie(Long idCategorie, String nomCategorie, byte[] photo, String description) {
 		super();
 		this.idCategorie = idCategorie;
 		this.nomCategorie = nomCategorie;
@@ -48,11 +48,11 @@ public class Categorie {
 	}
 
 	// Getter & Setter
-	public int getIdCategorie() {
+	public Long getIdCategorie() {
 		return idCategorie;
 	}
 
-	public void setIdCategorie(int idCategorie) {
+	public void setIdCategorie(Long idCategorie) {
 		this.idCategorie = idCategorie;
 	}
 

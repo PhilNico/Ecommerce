@@ -13,7 +13,7 @@ public interface ICategorieDao {
 
 	public void modifier(Categorie c);
 
-	public Categorie consulter(int id);
+	public Categorie consulter(Long id);
 	
 	public List<Categorie> consulterAll();
 

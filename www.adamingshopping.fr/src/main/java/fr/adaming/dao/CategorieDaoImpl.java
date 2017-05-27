@@ -45,7 +45,7 @@ public class CategorieDaoImpl implements ICategorieDao{
 	}
 
 	@Override
-	public Categorie consulter(int id) {
+	public Categorie consulter(Long id) {
 		s=sf.getCurrentSession();
 		Categorie c = (Categorie) s.get(Categorie.class, id);
 		return c;

@@ -54,15 +54,15 @@ public class ClientServiceImpl implements IClientService {
 	}
 
 	@Override
-	public Categorie consulter(int id) {
+	public Categorie consulter(Categorie c) {
 		// TODO Auto-generated method stub
-		return cDao.consulter(id);
+		return cDao.consulter(c);
 	}
 
 	@Override
-	public Produit consulterP(int id) {
+	public Produit consulterP(Produit p) {
 		// TODO Auto-generated method stub
-		return cDao.consulterP(id);
+		return cDao.consulterP(p);
 	}
 
 }

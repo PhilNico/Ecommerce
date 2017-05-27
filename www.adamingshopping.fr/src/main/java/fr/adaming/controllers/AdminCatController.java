@@ -41,7 +41,7 @@ public class AdminCatController {
 	
 	
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)
-	public String supprimerCategorie(ModelMap model, @RequestParam("idCategorie") int id) {
+	public String supprimerCategorie(ModelMap model, @RequestParam("idCategorie") Long id) {
 
 		Categorie c = categorieService.consulter(id);
 		categorieService.supprimer(c);
@@ -64,7 +64,7 @@ public class AdminCatController {
 		
 		
 		
-		if (c.getIdCategorie() == 0) {
+		if (c.getIdCategorie() == null) {
 		
 			categorieService.ajouter(c);
 		} else {
@@ -81,7 +81,7 @@ public class AdminCatController {
 	
 	@RequestMapping(value = "/photoCat", produces = MediaType.IMAGE_JPEG_VALUE)
 	@ResponseBody
-	public byte[] getPhoto(@RequestParam("idCategorie") int id) throws IOException {
+	public byte[] getPhoto(@RequestParam("idCategorie") Long id) throws IOException {
 		Categorie cat = categorieService.consulter(id);
 		if (cat.getPhoto() == null)
 			return new byte[0];
@@ -92,7 +92,7 @@ public class AdminCatController {
 
 	
 	@RequestMapping(value="/modifier", method=RequestMethod.GET)
-	public ModelAndView afficherFormModif(ModelMap model,  @RequestParam("idCategorie") int id){
+	public ModelAndView afficherFormModif(ModelMap model,  @RequestParam("idCategorie") Long id){
 		
 		Categorie c_rec=categorieService.consulter(id);
 		return new ModelAndView("formulaireCategorie",  "cCategorie",  c_rec);

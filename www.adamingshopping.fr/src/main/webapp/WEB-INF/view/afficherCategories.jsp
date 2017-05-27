@@ -31,7 +31,7 @@
 						<td>${categorie.idCategorie}</td>
 						<td>${categorie.description}</td>
 						<td>${categorie.photo}</td>
-						<td><a href="${pageContext.request.contextPath}/client/afficherProduitCat/1">Afficher Produit</a>
+						<td><a href="${pageContext.request.contextPath}/client/afficherProduitCat?categorieId=${produit.categorieId}">Afficher Produit</a>
 					</tr>
 				</tbody>
 			</c:forEach>

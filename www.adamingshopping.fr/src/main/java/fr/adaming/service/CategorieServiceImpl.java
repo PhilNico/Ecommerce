@@ -50,7 +50,7 @@ public class CategorieServiceImpl implements ICategorieService{
 
 
 	@Override
-	public Categorie consulter(int id) {
+	public Categorie consulter(Long id) {
 	
 		return categorieDao.consulter(id);
 	}
