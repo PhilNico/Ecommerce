@@ -24,9 +24,9 @@ public class ClientServiceImpl implements IClientService {
 	}
 
 	@Override
-	public List<Produit> getAllProduitByCategories(Categorie c) {
+	public List<Produit> getAllProduitByCategories(Produit p) {
 		// TODO Auto-generated method stub
-		return cDao.getAllProduitByCategories(c);
+		return cDao.getAllProduitByCategories(p);
 	}
 
 	@Override

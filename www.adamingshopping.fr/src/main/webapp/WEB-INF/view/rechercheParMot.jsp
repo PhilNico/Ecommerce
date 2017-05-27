@@ -30,7 +30,7 @@
 					<th>Opération</th>
 				</tr>
 			</thead>
-			<c:forEach var="produit" items="${listeProduit}">
+			<c:forEach var="produit" items="${listeProduitMot}">
 				<tbody>
 					<tr>
 						<td>${produit.idProduit}</td>
@@ -48,11 +48,11 @@
 
 
 
-<form:form action="rechercherParMot" modelAttribute="mProduit" method="POST" class="form-horizontal">
+<form:form action="rechercheParMot" modelAttribute="mProduit" method="POST" class="form-horizontal">
 <div class="form-group">
     <label for="inputmot" class="col-sm-2 control-label">Mot clé</label>
     <div class="col-sm-8">
-      <form:input type="text" class="form-control" id="inputmot" placeholder="mot" path="designation"/>
+      <form:input type="text" class="form-control" id="inputmot" placeholder="Mot Clé" path="designation"/>
     </div>
   </div>
   

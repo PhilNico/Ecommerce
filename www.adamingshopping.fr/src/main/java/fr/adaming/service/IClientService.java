@@ -13,7 +13,7 @@ public interface IClientService {
 
 	public Categorie consulter(int id);
 	
-	public List<Produit> getAllProduitByCategories(Categorie c);
+	public List<Produit> getAllProduitByCategories(Produit p);
 
 	public Produit getProduitSelect(Produit P);
 

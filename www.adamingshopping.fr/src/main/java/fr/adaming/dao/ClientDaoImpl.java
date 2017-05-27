@@ -40,30 +40,32 @@ public class ClientDaoImpl implements IClientDao{
 	}
 
 	@Override
-	public List<Produit> getAllProduitByCategories(Categorie c) {
+	public List<Produit> getAllProduitByCategories(Produit p) {
 		s=sf.getCurrentSession();
 		String req="FROM Produit as p WHERE p.categorie=p:pC";
 		Query query=s.createQuery(req);
-		query.setParameter("pC", c.getIdCategorie());
+		query.setParameter("pC", p.getCategorie());
 		List<Produit> listeProduit=query.list();
 		return listeProduit;
 	}
 
 	@Override
 	public Produit getProduitSelect(Produit p) {
-		s=sf.getCurrentSession();
-		return (Produit) s.get(Produit.class, p.getIdProduit() );
+		String req="FROM Produit as p WHERE p.selectionne=1";
+		Query query=s.createQuery(req);
+		query.setParameter("pD", p.getDesignation());
+		return (Produit) query.uniqueResult();
 	}
 
 	@Override
 	public Produit getProduitByKeyWord(Produit p) {
 		s=sf.getCurrentSession();
-		Produit p_rec=(Produit) s.get(Produit.class, p.getDesignation());
-		return p_rec;
-//		String req="FROM Produit as p WHERE p.designation=p:pD";
-//		Query query=s.createQuery(req);
-//		query.setParameter("pD", p.getDesignation());
-//		return (Produit) query.uniqueResult();
+//		Produit p_rec=(Produit) s.get(Produit.class, p.getDesignation());
+//		return p_rec;
+		String req="FROM Produit as p WHERE p.designation=:pD";
+		Query query=s.createQuery(req);
+		query.setParameter("pD", p.getDesignation());
+		return (Produit) query.uniqueResult();
 	}
 
 	@Override

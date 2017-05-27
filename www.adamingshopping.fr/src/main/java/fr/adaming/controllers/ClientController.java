@@ -56,29 +56,22 @@ public class ClientController {
 //		return "afficherProduitCat";
 //
 //	}
+//	
+	@RequestMapping(value="/afficherProduitCat", method=RequestMethod.GET)
+	public ModelAndView afficherFormProduitCat(){
+		return new ModelAndView("afficherProduitCat","mProduit", new Produit());
+	}
 	
-	@RequestMapping(value="/afficherProduitCat/{idC}")
-	public String afficherListProduitByCat(ModelMap model,@PathVariable("idC") int pId){
-		Categorie c_rec=cSer.consulter(pId);
-		List<Produit> listeProduitsCat=cSer.getAllProduitByCategories(c_rec);
+	@RequestMapping(value="/afficherProduitCat")
+	public String afficherListProduitByCat(ModelMap model,@PathVariable("mProduit") Produit p){
+		Produit p_rec=(Produit) cSer.getAllProduitByCategories(p);
+		List<Produit> listeProduitsCat = new ArrayList<Produit>();
+		listeProduitsCat.add(p_rec);
 		model.addAttribute("pListe", listeProduitsCat);
 		return "afficherProduitCat";
 	}
 	
 
-	
-//	@RequestMapping(value="/rechercheParMot", method=RequestMethod.POST)
-//	public String rechercheProduit(ModelMap model, @ModelAttribute("mProduit") Produit p){
-//		
-//		Produit p_rec = cSer.getProduitByKeyWord(p);
-//		List<Produit> listeProduit = new ArrayList<Produit>();
-//		listeProduit.add(p_rec);
-//		model.addAttribute("listeProduit", listeProduit);
-//		
-//		return "rechercheParMot";
-//		
-//	}
-	
 	@RequestMapping(value="/rechercheParMot", method=RequestMethod.GET)
 	public ModelAndView afficherFormRechercheParMot(){
 		return new ModelAndView("rechercheParMot","mProduit", new Produit());
@@ -90,7 +83,7 @@ public class ClientController {
 		Produit p_rec = cSer.getProduitByKeyWord(p);
 		List<Produit> produitListe = new ArrayList<Produit>();
 		produitListe.add(p_rec);
-		model.addAttribute("listeProduit", produitListe);
+		model.addAttribute("listeProduitMot", produitListe);
 		
 		return "rechercheParMot";
 		

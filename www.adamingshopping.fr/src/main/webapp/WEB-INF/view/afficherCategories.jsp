@@ -38,6 +38,8 @@
 		</table>
 	</div>
 
+	<br/>
+	<a href="${pageContext.request.contextPath}/client/rechercheParMot" style="text-align: center;" >rechercher un produit par mot clé</a>
 
 </body>
 </html>
