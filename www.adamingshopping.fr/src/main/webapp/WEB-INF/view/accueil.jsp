@@ -44,6 +44,7 @@
 
 <a href="${pageContext.request.contextPath}/client/panier">afficher panier</a>
 
- 
+ 	<br />
+	<a href="<c:url value="/j_spring_security_logout"/>">Se deconnecter</a>
 </body>
 </html>

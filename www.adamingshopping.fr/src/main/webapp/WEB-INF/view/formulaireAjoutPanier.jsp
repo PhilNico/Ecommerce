@@ -15,6 +15,8 @@
 </head>
 <body>
 
+
+
 	<h2>Produits</h2>
 	<p>Formulaire d'ajout au panier :</p>
 

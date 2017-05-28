@@ -13,6 +13,8 @@
 </head>
 <body>
 
+<%@include file="../templates/navbarPanier.jsp" %>
+
 <h1 style="text-align: center;">Votre panier :</h1>
 
 

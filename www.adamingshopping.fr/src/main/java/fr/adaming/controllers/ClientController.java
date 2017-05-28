@@ -71,6 +71,14 @@ public class ClientController {
 	}
 
 
+	@RequestMapping(value = "/afficherProduitClient", method = RequestMethod.GET)
+	public ModelAndView afficherListProduit(ModelMap model) {
+		List<Produit> listeProduit = produitService.consulterAll();
+		model.addAttribute("listeProduit", listeProduit);
+		return new ModelAndView("afficherProduitClient","mProduit", new Produit());
+
+	}
+	
 	@RequestMapping(value = "/afficherCategories", method = RequestMethod.GET)
 	public String afficherListCategorie(ModelMap model) {
 		List<Categorie> listeCategorie = cSer.getAllCategories();

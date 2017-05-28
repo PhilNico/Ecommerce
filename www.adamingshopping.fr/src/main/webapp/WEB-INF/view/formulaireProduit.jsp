@@ -14,6 +14,8 @@
 </head>
 <body>
 
+
+
 <h2>Produits</h2>
 		<p>Formulaire d'ajout ou de modification de produit:</p>
 

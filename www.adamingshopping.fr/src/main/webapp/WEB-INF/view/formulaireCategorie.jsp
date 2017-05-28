@@ -14,6 +14,8 @@
 </head>
 <body>
 
+
+
 <h2>Catégorie</h2>
 		<p>Formulaire d'ajout ou de modification de categorie:</p>
 

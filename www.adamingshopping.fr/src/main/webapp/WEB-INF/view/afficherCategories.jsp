@@ -13,7 +13,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%-- 	<%@include file="../templates/navBar.jsp"%> --%>
+	<%@include file="../templates/navBar.jsp"%>
 
 
 	<div class="container">
@@ -47,5 +47,7 @@
 	<a href="${pageContext.request.contextPath}/client/rechercheParMot"
 		style="text-align: center;">rechercher un produit par mot clé</a>
  
+ 	<br />
+	<a href="<c:url value="/j_spring_security_logout"/>">Se deconnecter</a>
 </body>
 </html>

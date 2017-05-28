@@ -14,6 +14,7 @@
 </head>
 <body>
 
+<%@include file="../templates/navBar.jsp" %>
 
 	<div class="container">
 		<h2>Produits</h2>

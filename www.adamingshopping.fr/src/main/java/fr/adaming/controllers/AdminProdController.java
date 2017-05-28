@@ -28,11 +28,11 @@ public class AdminProdController {
 		this.produitService = produitService;
 	}
 
-	@RequestMapping(value = "/afficherProduits", method = RequestMethod.GET)
-	public String afficherListProduit(ModelMap model) {
+	@RequestMapping(value = "adminProd/afficherProduits", method = RequestMethod.GET)
+	public ModelAndView afficherListProduit(ModelMap model) {
 		List<Produit> listeProduit = produitService.consulterAll();
 		model.addAttribute("listeProduit", listeProduit);
-		return "afficherProduits";
+		return new ModelAndView("afficherProduits", "mProduit", new Produit());
 
 	}
 

@@ -32,7 +32,7 @@ public class AdminCatController {
 		this.categorieService = categorieService;
 	}
 	
-	@RequestMapping(value="/afficherCategorieAdmin", method=RequestMethod.GET)
+	@RequestMapping(value="adminCat/afficherCategorieAdmin", method=RequestMethod.GET)
 	public String afficherCategorie(ModelMap model){
 		List<Categorie> listCategorie=categorieService.consulterAll();
 		model.addAttribute("listCategorie", listCategorie);

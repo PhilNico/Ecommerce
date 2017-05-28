@@ -1,7 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
- 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd">
+
+	<!-- Declaration de la localisation du fichier.properties -->
+	<context:property-placeholder location="classpath*:dataSource.properties" />
+
+	<bean id="dataSourceBean2"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="${adaming.driver}" />
+		<property name="url" value="${adaming.url}" />
+		<property name="username" value="${adaming.user}" />
+		<property name="password" value="${adaming.mdp}" />
+	</bean>
+
+	<!-- Partie des URL protégées -->
+	<security:http>
+		<!-- Les URL protégées et les autorisations -->
+		<security:intercept-url pattern="/setting/adminProd/**"
+			access="ROLE_ADMIN_PROD" />
+
+		<security:intercept-url pattern="/settingCat/adminCat/**"
+			access="ROLE_ADMIN_CAT" />
+		<!-- utiliser un formulaire perso -->
+		<security:form-login login-page="/login"
+			authentication-failure-url="/loginEchec" />
+
+		<!-- Pour se deconnecter -->
+		<security:logout logout-success-url="/logout" />
+
+		<!-- Pour les acces non autorisés -->
+		<security:access-denied-handler
+			error-page="/denied" />
+	</security:http>
+	
+	<!-- Partie des Authentification -->
+	<security:authentication-manager>
+		<security:authentication-provider>
+			<!-- Utilisation de la base de données pour récupérer l'identifiant, le 
+				mdp et Roles -->
+			<security:jdbc-user-service
+				data-source-ref="dataSourceBean2"
+				users-by-username-query="select username,password,actived from users where username=?"
+				authorities-by-username-query="select u.username,r.rolename from users u,roles r where u.id_u=r.user_id and u.username=?" />
+
+		</security:authentication-provider>
+	</security:authentication-manager>
 
 </beans>

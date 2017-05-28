@@ -14,8 +14,7 @@
 </head>
 <body>
 
-
-<%@include file="../templates/navBar.jsp" %>
+<%@include file="../templates/navBar.jsp"%>
 
 	<div class="container">
 		<h2>Produits</h2>
@@ -23,30 +22,30 @@
 		<table class="table table-hover">
 			<thead>
 				<tr>
-				
+					<th>ID Produit</th>
 					<th>Designation</th>
 					<th>Description</th>
 					<th>Prix</th>
-					<th>Quantité disponible</th>
+					<th>Quantité</th>
 					<th>Photo</th>
-					<th>Opération</th>
+
 				</tr>
 			</thead>
-			<c:forEach var="prod" items="${pListe}">
+			<c:forEach var="produit" items="${listeProduit}">
 				<tbody>
 					<tr>
-					
-						<td>${prod.designation}</td>
-						<td>${prod.description}</td>
-						<td>${prod.prix}</td>
-						<td>${prod.quantite}</td>
-						<td>${prod.photo}</td>
-						<td><a href="${pageContext.request.contextPath}/client/formaulaireAjout?idProduit=${prod.idProduit}">Ajouter au panier</a></td>
+						<td>${produit.idProduit}</td>
+						<td>${produit.designation}</td>
+						<td>${produit.description}</td>
+						<td>${produit.prix}</td>
+						<td>${produit.quantite}</td>
+						<td>${produit.photo}</td>
+
 					</tr>
 				</tbody>
 			</c:forEach>
 		</table>
 	</div>
- 
+
 </body>
 </html>

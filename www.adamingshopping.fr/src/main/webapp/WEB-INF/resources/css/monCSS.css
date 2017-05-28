@@ -1,0 +1,7 @@
+@CHARSET "ISO-8859-1";
+
+body{
+	background-image: url("src/main/webapp/WEB-INF/images/adaming.jpg");
+	background-size: 100%;
+	background-attachment: fixed;
+}
