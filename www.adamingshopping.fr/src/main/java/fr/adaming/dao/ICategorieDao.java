@@ -17,4 +17,4 @@ public interface ICategorieDao {
 	
 	public List<Categorie> consulterAll();
 
-}
+}//

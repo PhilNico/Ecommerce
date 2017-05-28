@@ -105,4 +105,4 @@ public class Panier {
 //	public void deleteItems(Long idProduit){
 //		produitPanier.remove(idProduit);
 //	}
-}
+}//

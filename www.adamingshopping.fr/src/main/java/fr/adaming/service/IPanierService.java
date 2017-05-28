@@ -7,4 +7,4 @@ public interface IPanierService {
 	
 	public Panier ajouterAuPanier(Produit p, int quantite, Panier panier);
 
-}
+}//

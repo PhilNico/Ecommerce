@@ -48,4 +48,4 @@ public class CategorieServiceImpl implements ICategorieService {
 
 		return categorieDao.consulterAll();
 	}
-}
+}//

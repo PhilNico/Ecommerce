@@ -16,4 +16,4 @@ public interface ICategorieService {
 
 	public List<Categorie> consulterAll();
 
-}
+}//

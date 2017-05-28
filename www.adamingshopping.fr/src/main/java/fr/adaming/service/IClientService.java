@@ -28,4 +28,4 @@ public interface IClientService {
 
 	public Commande enregisterCommande(Panier panier, Client c);
 
-}
+}//

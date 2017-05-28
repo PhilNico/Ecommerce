@@ -46,4 +46,4 @@ public class ProduitServiceImpl implements IProduitService {
 		return pDao.consulterAll();
 	}
 
-}
+}//
