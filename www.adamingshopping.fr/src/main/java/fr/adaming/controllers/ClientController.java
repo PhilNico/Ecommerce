@@ -84,7 +84,12 @@ public class ClientController {
 	}
 	
 	@RequestMapping(value="/accueil", method=RequestMethod.GET)
-	public ModelAndView afficherAccueil(){
+	public ModelAndView afficherAccueil(ModelMap model){
+		
+		List<Categorie> listeCategorie = cSer.getAllCategories();
+		model.addAttribute("listeCategorie", listeCategorie);	
+		
+		
 		return new ModelAndView("accueil","mProduit", new Produit());
 	
 	}
