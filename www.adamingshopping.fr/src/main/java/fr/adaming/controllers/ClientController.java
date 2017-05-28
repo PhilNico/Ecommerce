@@ -3,6 +3,8 @@ package fr.adaming.controllers;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,13 +18,17 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import fr.adaming.model.Categorie;
+import fr.adaming.model.Commande;
+import fr.adaming.model.LigneCommande;
 import fr.adaming.model.Panier;
 import fr.adaming.model.Produit;
 import fr.adaming.service.IClientService;
+import fr.adaming.service.IPanierService;
+import fr.adaming.service.IProduitService;
 
 @Controller
 @RequestMapping("/client")
-@SessionAttributes("panier")
+//@SessionAttributes("panier")
 public class ClientController {
 
 	@Autowired
@@ -35,6 +41,35 @@ public class ClientController {
 	public void setcSer(IClientService cSer) {
 		this.cSer = cSer;
 	}
+	
+	
+	
+	@Autowired
+	private IPanierService panierService;
+	
+	@Autowired
+	private IProduitService produitService;
+	
+	@Autowired
+	private HttpSession session;
+	
+	
+	
+
+	public void setSession(HttpSession session) {
+		this.session = session;
+	}
+
+
+	public void setProduitService(IProduitService produitService) {
+		this.produitService = produitService;
+	}
+
+
+	public void setPanierService(IPanierService panierService) {
+		this.panierService = panierService;
+	}
+
 
 	@RequestMapping(value = "/afficherCategories", method = RequestMethod.GET)
 	public String afficherListCategorie(ModelMap model) {
@@ -47,13 +82,7 @@ public class ClientController {
 	@RequestMapping(value = "/afficherProduitCat", method = RequestMethod.GET)
 	public String supprimerProduit(ModelMap model, @RequestParam("categorieId") Long id) {
 
-//		Produit p=new Produit();
-//		Categorie c_rec=new Categorie();
-//		c_rec.setIdCategorie(id);
-//		Categorie c=cSer.consulter(c_rec);
-//		
-//		List<Produit> produitCat=cSer.getAllProduitByCategories(id);
-//		model.addAttribute("pListe",  produitCat);
+
 		
 		model.addAttribute("categorie", cSer.getAllCategories());
 		model.addAttribute("produit", cSer.getAllProduitByCategories(id));
@@ -71,6 +100,7 @@ public class ClientController {
 		return new ModelAndView("rechercheParMot","mProduit", new Produit());
 	}
 	
+	
 	@RequestMapping(value="/rechercheParMot", method=RequestMethod.POST)
 	public String rechercheParMot(ModelMap model, @ModelAttribute("mProduit") Produit p){
 
@@ -86,6 +116,17 @@ public class ClientController {
 	@RequestMapping(value="/accueil", method=RequestMethod.GET)
 	public ModelAndView afficherAccueil(ModelMap model){
 		
+		
+		if(session.getAttribute("panier")==null){
+		Panier panier = new Panier();		
+		session.setAttribute("panier", panier);
+		
+		}else{
+			
+			Panier panier = (Panier) session.getAttribute("panier");
+	
+			session.setAttribute("panier", panier);
+		}
 		List<Categorie> listeCategorie = cSer.getAllCategories();
 		model.addAttribute("listeCategorie", listeCategorie);	
 		
@@ -94,19 +135,43 @@ public class ClientController {
 	
 	}
 	
-//	@RequestMapping("/panier")
-//	public String panier(Model model){
-//		if(model.asMap().get("panier")==null){
-//			model.addAttribute("panier", new Panier());
-//		}
-//	model.addAttribute("categorie", cSer.getAllCategories());
-//	model.addAttribute("produit", cSer.getProduitSelect());
-//	return "accueil";
-//	}
-//	
-//	public String produitPanier(@RequestParam Long idCategorie, Model model, Produit p){
-//		model.addAttribute("categorie", cSer.getAllCategories());
-//		model.addAttribute("produit", cSer.getAllProduitByCategories(idCategorie));
-//		return "accueil";
-//	}
+	
+	@RequestMapping(value="/panier", method=RequestMethod.GET)
+	public String afficherFormPanier(ModelMap model){
+		
+		
+		Panier panier = (Panier) session.getAttribute("panier");
+		List<LigneCommande> listeCommande = new ArrayList<LigneCommande>();
+		listeCommande=panier.getListeLignesCommande();
+		
+		model.addAttribute("listeCommande", listeCommande);
+		return "panier";
+	}
+	
+	@RequestMapping(value="/formaulaireAjout", method=RequestMethod.GET)
+	public ModelAndView formulaireAjoutPanier(ModelMap model, @RequestParam("idProduit") Long id){
+		Produit p = new Produit();
+		p.setIdProduit(id);
+		produitService.consulter(p);
+		return new ModelAndView("formulaireAjoutPanier", "pProduit", p);
+	}
+	
+	
+	@RequestMapping(value="ajouterAuPanier", method=RequestMethod.POST)
+	public String ajouterAuPanier(@ModelAttribute("mProduit") Produit p){
+		
+		Panier panier =(Panier) session.getAttribute("panier");
+		
+		int quantite = p.getQuantite();
+		
+		p=produitService.consulter(p);
+		
+		panierService.ajouterAuPanier(p, quantite, panier);
+		
+		session.setAttribute("panier", panier);
+		
+		return "accueil";
+		
+	}
+
 }

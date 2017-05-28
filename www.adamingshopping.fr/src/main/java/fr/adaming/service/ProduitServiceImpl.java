@@ -24,25 +24,25 @@ public class ProduitServiceImpl implements IProduitService {
 
 	@Override
 	public int supprimer(Produit p) {
-		// TODO Auto-generated method stub
+	
 		return pDao.supprimer(p);
 	}
 
 	@Override
 	public Produit modifier(Produit p) {
-		// TODO Auto-generated method stub
+	
 		return pDao.modifier(p);
 	}
 
 	@Override
 	public Produit consulter(Produit p) {
-		// TODO Auto-generated method stub
+	
 		return pDao.consulter(p);
 	}
 
 	@Override
 	public List<Produit> consulterAll() {
-		// TODO Auto-generated method stub
+
 		return pDao.consulterAll();
 	}
 

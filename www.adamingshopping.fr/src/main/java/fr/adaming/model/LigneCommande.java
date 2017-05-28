@@ -31,13 +31,13 @@ public class LigneCommande {
 		super();
 	}
 
-	public LigneCommande(int quantite, int prix) {
+	public LigneCommande(int quantite, double prix) {
 		super();
 		this.quantite = quantite;
 		this.prix = prix;
 	}
 
-	public LigneCommande(Long id, int quantite, int prix) {
+	public LigneCommande(Long id, int quantite, double prix) {
 		super();
 		this.id = id;
 		this.quantite = quantite;

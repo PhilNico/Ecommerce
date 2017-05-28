@@ -180,6 +180,17 @@ public class Produit {
 
 
 
+
+	@Override
+	public String toString() {
+		return "Produit [idProduit=" + idProduit + ", designation=" + designation + ", description=" + description
+				+ ", prix=" + prix + ", quantite=" + quantite + ", selectionne=" + selectionne + ", photo=" + photo
+				+ ", categorie=" + categorie + "]";
+	}
+
+	
+
+
 	
 }
 

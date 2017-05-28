@@ -81,12 +81,12 @@ public class ClientDaoImpl implements IClientDao{
 
 	@Override
 	public Commande enregisterCommande(Panier panier, Client c) {
-		s=sf.getCurrentSession();
-		s.save(c);
-		Commande commande=new Commande();
-		commande.setClient(c);
-		commande.setListeLigneCommande((List<LigneCommande>) panier.getItems());
-		return commande;
+//		s=sf.getCurrentSession();
+//		s.save(c);
+//		Commande commande=new Commande();
+//		commande.setClient(c);
+//		commande.setListeLigneCommande((List<LigneCommande>) panier.getItems());
+		return null;
 	}
 
 	@Override
