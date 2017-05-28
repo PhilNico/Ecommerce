@@ -42,6 +42,6 @@
 <a href="${pageContext.request.contextPath}/settingCat/formulaireCategorie">Ajouter une catégorie</a>
 <br/>
 <a href="${pageContext.request.contextPath}/settingCat/rechercherCategorie">Rechercher une catégorie</a>
-
+ 
 </body>
 </html>

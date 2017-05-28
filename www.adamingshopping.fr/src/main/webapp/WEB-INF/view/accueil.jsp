@@ -44,6 +44,6 @@
 
 <a href="${pageContext.request.contextPath}/client/panier">afficher panier</a>
 
-
+ 
 </body>
 </html>
