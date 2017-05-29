@@ -22,15 +22,11 @@
 		<!-- Les URL protégées et les autorisations -->
 		<security:intercept-url pattern="/setting/**"
 			access="ROLE_ADMIN_PROD" />
-			
-			
-			
 
 		<security:intercept-url pattern="/settingCat/**"
 			access="ROLE_ADMIN_CAT" />
 			
-		<security:intercept-url pattern="/setting/**"
-			access="ROLE_ADMIN_CAT" />
+
 			
 			
 		<!-- utiliser un formulaire perso -->
