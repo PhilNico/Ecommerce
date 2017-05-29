@@ -44,7 +44,7 @@
   <div class="form-group">
     <label for="inputPhoto" class="col-sm-2 control-label">Photo</label>
     <div class="col-sm-8">
-      <form:input type="file" name="file" class="form-control" id="inputPhoto" placeholder="Photo" path="photo"/>
+      <input type="file" name="file" class="form-control" id="inputPhoto" placeholder="Photo"/>
     </div>
   </div>
 

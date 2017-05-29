@@ -17,7 +17,7 @@
 	<%@include file="../templates/navBar2.jsp"%>
 
 	<div class="container">
-		<h2>Hover Rows</h2>
+		<h2>Catégorie</h2>
 		<p>Voici la liste des Catégories :</p>
 		<table class="table table-hover">
 			<thead>
@@ -52,11 +52,6 @@
 	<a
 		href="${pageContext.request.contextPath}/settingCat/rechercherCategorie">Rechercher
 		une catégorie</a>
-		<br />
-	<a
-		href="${pageContext.request.contextPath}/settingCat/afficherProduits">afficher Produit</a>
-	<br />
-	<a href="<c:url value="/j_spring_security_logout"/>">Se deconnecter</a>
 
 <%@include file="../templates/footer.jsp" %>
 </body>

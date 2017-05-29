@@ -13,23 +13,15 @@
 			<a class="navbar-brand"
 				href="${pageContext.request.contextPath}/client/accueil">Accueil</a>
 			<a class="navbar-brand"
-				href="${pageContext.request.contextPath}/settingCat/afficherCategorieAdmin">Admin
-				Cat</a> <a class="navbar-brand"
-				href="${pageContext.request.contextPath}/setting/afficherProduits">Admin
-				Prod</a>
+				href="${pageContext.request.contextPath}/settingCat/afficherCategorieAdmin">Catégories</a> <a class="navbar-brand"
+				href="${pageContext.request.contextPath}/setting/afficherProduits">Produits</a>
 		</div>
 
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse"
 			id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
-				<li class="active"><a
-					href="${pageContext.request.contextPath}/client/afficherCategorieAdmin">Categories
-						<span class="sr-only">(current)</span>
-				</a></li>
-				<li><a
-					href="${pageContext.request.contextPath}/client/afficherProduitClient">Tout
-						les Produits</a></li>
+			
 			</ul>
 
 			<form:form class="navbar-form navbar-left" action="rechercheParMot"
@@ -42,13 +34,7 @@
 			</form:form>
 
 			<ul class="nav navbar-nav navbar-right">
-				<li><a
-					href="${pageContext.request.contextPath}/settingCat/afficherCategorieAdmin"
-					class="btn btn-warning">Admin Categorie</a></li>
-				<li><a
-					href="${pageContext.request.contextPath}/setting/afficherProduits"
-					class="btn btn-info">Admin Produit</a></li>
-				<li><a style="color: white" type="button"
+				<li><a style="color: black" type="button"
 					class="btn btn-danger"
 					href="<c:url value="/j_spring_security_logout"/>">Se
 						deconnecter</a></li>

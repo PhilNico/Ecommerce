@@ -18,8 +18,10 @@ public class Categorie {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idCategorie;
 	private String nomCategorie;
+	
 	@Lob
 	private byte[] photo;
+	
 	private String description;
 	
 	@OneToMany(mappedBy="categorie")
