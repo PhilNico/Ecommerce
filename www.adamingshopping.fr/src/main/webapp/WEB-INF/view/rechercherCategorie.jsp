@@ -64,7 +64,8 @@
 	<a href="${pageContext.request.contextPath}/settingCat/formulaireCategorie" style="text-align: center;" >ajouter un produit</a>
 	<br/>
 	<a href="${pageContext.request.contextPath}/settingCat/rechercherCategorie" style="text-align: center;" >rechercher un produit</a>
-
+	<br/>
+<%@include file="../templates/footer.jsp" %>
 </body>
 </html>
 

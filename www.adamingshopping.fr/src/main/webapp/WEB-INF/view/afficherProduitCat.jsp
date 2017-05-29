@@ -11,6 +11,8 @@
 <link rel="stylesheet"
 	href="<c:url value="/assets/jquery-3.2.1.min.js"/>" />
 <title>Insert title here</title>
+
+<%@include file="../templates/Header.jsp" %>
 </head>
 <body>
 
@@ -41,12 +43,14 @@
 						<td>${prod.prix}</td>
 						<td>${prod.quantite}</td>
 						<td>${prod.photo}</td>
-						<td><a href="${pageContext.request.contextPath}/client/formaulaireAjout?idProduit=${prod.idProduit}">Ajouter au panier</a></td>
+						<td><a href="${pageContext.request.contextPath}/client/formulaireAjout?idProduit=${prod.idProduit}">Ajouter au panier</a></td>
 					</tr>
 				</tbody>
 			</c:forEach>
 		</table>
 	</div>
+ 
+ <%@include file="../templates/footer.jsp" %>
  
 </body>
 </html>

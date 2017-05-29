@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="<c:url value="/assets/bootstrap.min.js"/>"/>
 <link rel="stylesheet" href="<c:url value="/assets/jquery-3.2.1.min.js"/>"/>
 <title>Formulaire produit</title>
+<%@include file="../templates/Header.jsp" %>
 </head>
 <body>
 
@@ -22,7 +23,6 @@
 		<table class="table table-hover">
 			<thead>
 				<tr>
-					<th>ID Produit</th>
 					<th>Designation</th>
 					<th>Description</th>
 					<th>Prix</th>
@@ -34,12 +34,12 @@
 			<c:forEach var="produit" items="${listeProduitMot}">
 				<tbody>
 					<tr>
-						<td>${produit.idProduit}</td>
 						<td>${produit.designation}</td>
 						<td>${produit.description}</td>
 						<td>${produit.prix}</td>
 						<td>${produit.quantite}</td>
 						<td>${produit.photo}</td>
+						<td><a href="${pageContext.request.contextPath}/client/formulaireAjout?idProduit=${prod.idProduit}">Ajouter au panier</a></td>
 					</tr>
 				</tbody>
 			</c:forEach>
@@ -64,12 +64,12 @@
 <!--   </div> -->
 <%-- </form:form> --%>
 
-	<a href="${pageContext.request.contextPath}/setting/formulaireProduit" style="text-align: center;" >ajouter un produit</a>
-	<br/>
-	<a href="${pageContext.request.contextPath}/setting/rechercheProduit" style="text-align: center;" >rechercher un produit</a>
-	<br/>
-	<a href="${pageContext.request.contextPath}/client/rechercheParMot" style="text-align: center;" >rechercher un produit par mot clé</a>
-
+<%-- 	<a href="${pageContext.request.contextPath}/setting/formulaireProduit" style="text-align: center;" >ajouter un produit</a> --%>
+<!-- 	<br/> -->
+<%-- 	<a href="${pageContext.request.contextPath}/setting/rechercheProduit" style="text-align: center;" >rechercher un produit</a> --%>
+<!-- 	<br/> -->
+<%-- 	<a href="${pageContext.request.contextPath}/client/rechercheParMot" style="text-align: center;" >rechercher un produit par mot clé</a> --%>
+<%@include file="../templates/footer.jsp" %>
 </body>
 </html>
  

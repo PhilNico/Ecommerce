@@ -11,6 +11,8 @@
 <link rel="stylesheet"
 	href="<c:url value="/assets/jquery-3.2.1.min.js"/>" />
 <title>Insert title here</title>
+
+<%@include file="../templates/Header.jsp" %>
 </head>
 <body>
 
@@ -46,6 +48,8 @@
 			</c:forEach>
 		</table>
 	</div>
+
+<%@include file="../templates/footer.jsp" %>
 
 </body>
 </html>

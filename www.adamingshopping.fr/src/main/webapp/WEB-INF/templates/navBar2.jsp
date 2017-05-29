@@ -9,9 +9,9 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-        <a class="navbar-brand" href="${pageContext.request.contextPath}/client/accueil">Accueil Normal</a>
-      <a class="navbar-brand" href="${pageContext.request.contextPath}/settingCat/adminCat/afficherCategorieAdmin">Accueil Admin Cat</a>
-      <a class="navbar-brand" href="${pageContext.request.contextPath}/setting/adminProd/afficherProduits">Accueil Admin Prod</a>
+        <a class="navbar-brand" href="${pageContext.request.contextPath}/client/accueil">Accueil</a>
+      <a class="navbar-brand" href="${pageContext.request.contextPath}/settingCat/afficherCategorieAdmin">Admin Cat</a>
+      <a class="navbar-brand" href="${pageContext.request.contextPath}/setting/afficherProduits">Admin Prod</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -19,21 +19,9 @@
       <ul class="nav navbar-nav">
         <li class="active"><a href="${pageContext.request.contextPath}/client/afficherCategorieAdmin">Categories <span class="sr-only">(current)</span></a></li>
         <li><a href="${pageContext.request.contextPath}/client/afficherProduitClient">Tout les Produits</a></li>
-<!--         <li class="dropdown"> -->
-<!--           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a> -->
-<!--           <ul class="dropdown-menu"> -->
-<!--             <li><a href="#">Action</a></li> -->
-<!--             <li><a href="#">Another action</a></li> -->
-<!--             <li><a href="#">Something else here</a></li> -->
-<!--             <li role="separator" class="divider"></li> -->
-<!--             <li><a href="#">Separated link</a></li> -->
-<!--             <li role="separator" class="divider"></li> -->
-<!--             <li><a href="#">One more separated link</a></li> -->
-<!--           </ul> -->
-<!--         </li> -->
       </ul>
       
-      <form:form class="navbar-form navbar-left" action="rechercheParMot" modelAttribute="mProduit" method="POST">
+     <form:form class="navbar-form navbar-left" action="rechercheParMot" modelAttribute="pProduit" method="POST">
         <div class="form-group">
           <form:input type="text" class="form-control" id="inputmot" placeholder="Search" path="designation"/>
         </div>
@@ -41,16 +29,9 @@
       </form:form>
       
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="${pageContext.request.contextPath}/settingCat/adminCat/afficherCategorieAdmin" class="btn btn-warning">Admin Categorie</a></li>
-        <li><a href="${pageContext.request.contextPath}/setting/adminProd/afficherProduits" class="btn btn-info">Admin Produit</a></li>
+        <li><a href="${pageContext.request.contextPath}/settingCat/afficherCategorieAdmin" class="btn btn-warning">Admin Categorie</a></li>
+        <li><a href="${pageContext.request.contextPath}/setting/afficherProduits" class="btn btn-info">Admin Produit</a></li>
        <li><a href="${pageContext.request.contextPath}/client/panier" class="btn btn-success" >Panier</a></li>
-<!--         <li class="dropdown"> -->
-<!--           <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Administrateur<span class="caret"></span></a> -->
-<!--          <ul class="dropdown-menu"> -->
-<%--             <li><a href="${pageContext.request.contextPath}/settingCat/adminCat/afficherCategorieAdmin">Admin Categorie</a></li> --%>
-<%--             <li><a href="${pageContext.request.contextPath}/settingCat/admin/afficherProduits">Admin Produit</a></li> --%>
-<!--           </ul> -->
-<!--         </li> -->
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

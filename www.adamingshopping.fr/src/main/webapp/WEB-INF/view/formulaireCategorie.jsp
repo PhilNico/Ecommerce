@@ -19,7 +19,7 @@
 <h2>Catégorie</h2>
 		<p>Formulaire d'ajout ou de modification de categorie:</p>
 
-<form:form action="ajouterCategorie" modelAttribute="cCategorie" method="POST" class="form-horizontal" >
+<form:form action="ajouterCategorie" modelAttribute="cCategorie" method="POST"  enctype="multipart/form-data" class="form-horizontal" >
  
  
       <form:input path="idCategorie" type="hidden"/>
@@ -44,7 +44,7 @@
   <div class="form-group">
     <label for="inputPhoto" class="col-sm-2 control-label">Photo</label>
     <div class="col-sm-8">
-      <form:input type="file" class="form-control" id="inputPhoto" placeholder="Photo" path="photo"/>
+      <form:input type="file" name="file" class="form-control" id="inputPhoto" placeholder="Photo" path="photo"/>
     </div>
   </div>
 

@@ -75,20 +75,21 @@ public class ClientController {
 	public ModelAndView afficherListProduit(ModelMap model) {
 		List<Produit> listeProduit = produitService.consulterAll();
 		model.addAttribute("listeProduit", listeProduit);
-		return new ModelAndView("afficherProduitClient","mProduit", new Produit());
+		return new ModelAndView("afficherProduitClient","pProduit", new Produit());
 
 	}
 	
 	@RequestMapping(value = "/afficherCategories", method = RequestMethod.GET)
-	public String afficherListCategorie(ModelMap model) {
+	public ModelAndView afficherListCategorie(ModelMap model) {
 		List<Categorie> listeCategorie = cSer.getAllCategories();
 		model.addAttribute("listeCategorie", listeCategorie);
-		return "afficherCategories";
+		return new ModelAndView("afficherCategories","pProduit", new Produit());
+	
 	}
 
 	
 	@RequestMapping(value = "/afficherProduitCat", method = RequestMethod.GET)
-	public String supprimerProduit(ModelMap model, @RequestParam("categorieId") Long id) {
+	public ModelAndView supprimerProduit(ModelMap model, @RequestParam("categorieId") Long id) {
 
 
 		
@@ -98,26 +99,26 @@ public class ClientController {
 		List<Produit> produitCat=cSer.getAllProduitByCategories(id);
 		model.addAttribute("pListe",  produitCat);
 		
-		return "afficherProduitCat";
+		return new ModelAndView("afficherProduitCat","pProduit", new Produit());
 
 	}
 
 
 	@RequestMapping(value="/rechercheParMot", method=RequestMethod.GET)
 	public ModelAndView afficherFormRechercheParMot(){
-		return new ModelAndView("rechercheParMot","mProduit", new Produit());
+		return new ModelAndView("rechercheParMot","pProduit", new Produit());
 	}
 	
 	
 	@RequestMapping(value="/rechercheParMot", method=RequestMethod.POST)
-	public String rechercheParMot(ModelMap model, @ModelAttribute("mProduit") Produit p){
+	public ModelAndView rechercheParMot(ModelMap model, @ModelAttribute("pProduit") Produit p){
 
 		Produit p_rec = cSer.getProduitByKeyWord(p);
 		List<Produit> produitListe = new ArrayList<Produit>();
 		produitListe.add(p_rec);
 		model.addAttribute("listeProduitMot", produitListe);
 		
-		return "rechercheParMot";
+		return new ModelAndView("rechercheParMot", "pProduit", p);
 		
 	}
 	
@@ -139,13 +140,13 @@ public class ClientController {
 		model.addAttribute("listeCategorie", listeCategorie);	
 		
 		
-		return new ModelAndView("accueil","mProduit", new Produit());
+		return new ModelAndView("accueil","pProduit", new Produit());
 	
 	}
 	
 	
 	@RequestMapping(value="/panier", method=RequestMethod.GET)
-	public String afficherFormPanier(ModelMap model){
+	public ModelAndView afficherFormPanier(ModelMap model){
 		
 		
 		Panier panier = (Panier) session.getAttribute("panier");
@@ -153,10 +154,10 @@ public class ClientController {
 		listeCommande=panier.getListeLignesCommande();
 		
 		model.addAttribute("listeCommande", listeCommande);
-		return "panier";
+		return new ModelAndView("panier","pProduit", new Produit());
 	}
 	
-	@RequestMapping(value="/formaulaireAjout", method=RequestMethod.GET)
+	@RequestMapping(value="/formulaireAjout", method=RequestMethod.GET)
 	public ModelAndView formulaireAjoutPanier(ModelMap model, @RequestParam("idProduit") Long id){
 		Produit p = new Produit();
 		p.setIdProduit(id);
@@ -166,7 +167,7 @@ public class ClientController {
 	
 	
 	@RequestMapping(value="ajouterAuPanier", method=RequestMethod.POST)
-	public String ajouterAuPanier(@ModelAttribute("mProduit") Produit p){
+	public String ajouterAuPanier(@ModelAttribute("pProduit") Produit p){
 		
 		Panier panier =(Panier) session.getAttribute("panier");
 		

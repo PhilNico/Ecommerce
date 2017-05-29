@@ -1,5 +1,5 @@
 
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -31,7 +31,7 @@
 <!--         </li> -->
       </ul>
       
-      <form:form class="navbar-form navbar-left" action="rechercheParMot" modelAttribute="mProduit" method="POST">
+      <form:form class="navbar-form navbar-left" action="rechercheParMot" modelAttribute="pProduit" method="POST">
         <div class="form-group">
           <form:input type="text" class="form-control" id="inputmot" placeholder="Search" path="designation"/>
         </div>
@@ -39,9 +39,10 @@
       </form:form>
       
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="${pageContext.request.contextPath}/settingCat/adminCat/afficherCategorieAdmin" class="btn btn-warning">Admin Categorie</a></li>
-        <li><a href="${pageContext.request.contextPath}/setting/adminProd/afficherProduits" class="btn btn-info">Admin Produit</a></li>
-       <li><a href="${pageContext.request.contextPath}/client/panier" class="btn btn-success" >Panier</a></li>
+        <li><a style="color: white" href="${pageContext.request.contextPath}/settingCat/afficherCategorieAdmin" class="btn btn-warning">Admin Categorie</a></li>
+        <li><a style="color: white" href="${pageContext.request.contextPath}/setting/afficherProduits" class="btn btn-info">Admin Produit</a></li>
+       <li><a style="color: white" href="${pageContext.request.contextPath}/client/panier" class="btn btn-success" >Panier</a></li>
+       <li><a style="color: white" type="button" class="btn btn-danger" href="<c:url value="/j_spring_security_logout"/>">Se deconnecter</a></li>
 <!--         <li class="dropdown"> -->
 <!--           <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Administrateur<span class="caret"></span></a> -->
 <!--          <ul class="dropdown-menu"> -->

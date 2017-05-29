@@ -11,14 +11,20 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Accueil</title>
+
+<%@include file="../templates/Header.jsp" %>
+
 </head>
 <body>
 
 <%@include file="../templates/navBar.jsp" %>
 
 <h1 style="text-align: center;">Bienvenue sur Adaming Shopping</h1>
+<br/>
+<br/>
 
-
+<h3 style="text-align: center;">Voci la liste des catégories</h3>
+<br/>
 <div class="container">
 		<table class="table table-hover">
 			<thead>
@@ -35,16 +41,15 @@
 						<td>${categorie.nomCategorie}</td>
 						<td>${categorie.description}</td>
 						<td>${categorie.photo}</td>
-						<td><a href="${pageContext.request.contextPath}/client/afficherProduitCat?categorieId=${categorie.idCategorie}">Afficher Produit</a></td>
+						<td><a href="${pageContext.request.contextPath}/client/afficherProduitCat?categorieId=${categorie.idCategorie}">Afficher les Produits de la Catégorie</a></td>
 					</tr>
 				</tbody>
 			</c:forEach>
 		</table>
 	</div>
-
-<a href="${pageContext.request.contextPath}/client/panier">afficher panier</a>
-
- 	<br />
-	<a href="<c:url value="/j_spring_security_logout"/>">Se deconnecter</a>
+	
+	
+	
 </body>
+<%@include file="../templates/footer.jsp" %>
 </html>

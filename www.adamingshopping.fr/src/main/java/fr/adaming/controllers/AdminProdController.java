@@ -28,11 +28,11 @@ public class AdminProdController {
 		this.produitService = produitService;
 	}
 
-	@RequestMapping(value = "adminProd/afficherProduits", method = RequestMethod.GET)
+	@RequestMapping(value = "/afficherProduits", method = RequestMethod.GET)
 	public ModelAndView afficherListProduit(ModelMap model) {
 		List<Produit> listeProduit = produitService.consulterAll();
 		model.addAttribute("listeProduit", listeProduit);
-		return new ModelAndView("afficherProduits", "mProduit", new Produit());
+		return new ModelAndView("afficherProduits", "pProduit", new Produit());
 
 	}
 
@@ -57,7 +57,7 @@ public class AdminProdController {
 	
 
 	@RequestMapping(value = "/ajouterProduit", method = RequestMethod.POST)
-	public String ajouterProduit(ModelMap model, @ModelAttribute("pProduit") Produit p) {
+	public ModelAndView ajouterProduit(ModelMap model, @ModelAttribute("pProduit") Produit p) {
 
 		
 		if(p.getIdProduit()==null){
@@ -69,7 +69,7 @@ public class AdminProdController {
 		List<Produit> listeProduit = produitService.consulterAll();
 		model.addAttribute("listeProduit", listeProduit);
 
-		return "afficherProduits";
+		return new ModelAndView("afficherProduits", "pProduit", new Produit());
 	}
 	
 	@RequestMapping(value="/modifierProduit", method=RequestMethod.GET)
@@ -129,9 +129,9 @@ public class AdminProdController {
 //
 //
 
-// public String afficherFormProduit(Model)
+// public String afficherForpProduit(Model)
 
-// public String afficherFormProduit()
+// public String afficherForpProduit()
 //
 // @RequestMapping(value="/modifier", method=RequestMethod.POST)
 // public String modifierProduit(ModelMap model, @ModelAttribute("prod")

@@ -10,10 +10,12 @@
 <link rel="stylesheet" href="<c:url value="/assets/jquery-3.2.1.min.js"/>"/>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Votre panier</title>
+
+<%@include file="../templates/Header.jsp" %>
 </head>
 <body>
 
-<%@include file="../templates/navbarPanier.jsp" %>
+<%@include file="../templates/navBar.jsp" %>
 
 <h1 style="text-align: center;">Votre panier :</h1>
 
@@ -43,6 +45,6 @@
 
 
 
- 
+ <%@include file="../templates/footer.jsp" %>
 </body>
 </html>

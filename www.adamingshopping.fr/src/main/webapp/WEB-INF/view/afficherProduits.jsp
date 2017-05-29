@@ -11,6 +11,8 @@
 <link rel="stylesheet"
 	href="<c:url value="/assets/jquery-3.2.1.min.js"/>" />
 <title>Insert title here</title>
+
+<%@include file="../templates/Header.jsp" %>
 </head>
 <body>
 
@@ -58,6 +60,8 @@
 	<br />
 	<a href="${pageContext.request.contextPath}/client/rechercheParMot"
 		style="text-align: center;">rechercher un produit par mot clé</a>
+ 
+ <%@include file="../templates/footer.jsp" %>
  
 </body>
 </html>

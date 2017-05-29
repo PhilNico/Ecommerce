@@ -10,9 +10,11 @@
 <link rel="stylesheet"
 	href="<c:url value="/assets/jquery-3.2.1.min.js"/>" />
 <title>Categorie</title>
+
+<%@include file="../templates/Header.jsp" %>
 </head>
 <body>
-<%@include file="../templates/navBar2.jsp" %>
+	<%@include file="../templates/navBar2.jsp"%>
 
 	<div class="container">
 		<h2>Hover Rows</h2>
@@ -33,12 +35,11 @@
 						<td>${categorie.idCategorie}</td>
 						<td>${categorie.nomCategorie}</td>
 						<td>${categorie.description}</td>
-						<td><img
-							src="${pageContext.request.contextPath}/settingCat/photoCat?idCategorie=${categorie.idCategorie}" /></td>
+						<td><img src="photoCat?idCat=${categorie.idCategorie}" /></td>
 						<td><a
 							href="${pageContext.request.contextPath}/settingCat/delete?idCategorie=${categorie.idCategorie}">Supprimer</a>
 							| <a
-							href="${pageContext.request.contextPath}/settingCat/modifier?idCategorie=${categorie.idCategorie}"" >modifier</a></td>
+							href="${pageContext.request.contextPath}/settingCat/modifier?idCategorie=${categorie.idCategorie}">modifier</a></td>
 					</tr>
 				</tbody>
 			</c:forEach>
@@ -51,8 +52,12 @@
 	<a
 		href="${pageContext.request.contextPath}/settingCat/rechercherCategorie">Rechercher
 		une catégorie</a>
+		<br />
+	<a
+		href="${pageContext.request.contextPath}/settingCat/afficherProduits">afficher Produit</a>
 	<br />
 	<a href="<c:url value="/j_spring_security_logout"/>">Se deconnecter</a>
 
+<%@include file="../templates/footer.jsp" %>
 </body>
 </html>

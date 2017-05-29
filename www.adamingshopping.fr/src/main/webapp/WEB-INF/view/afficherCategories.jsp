@@ -11,13 +11,15 @@
 <link rel="stylesheet"
 	href="<c:url value="/assets/jquery-3.2.1.min.js"/>" />
 <title>Insert title here</title>
+
+<%@include file="../templates/Header.jsp" %>
 </head>
 <body>
 	<%@include file="../templates/navBar.jsp"%>
 
 
 	<div class="container">
-		<h2>Hover Rows</h2>
+		<h2>Catégories</h2>
 		<p>Voici la liste des Catégories :</p>
 		<table class="table table-hover">
 			<thead>
@@ -33,7 +35,7 @@
 					<tr>
 						<td>${categorie.idCategorie}</td>
 						<td>${categorie.description}</td>
-						<td>${categorie.photo}</td>
+						<td><img src="photoCat?idCat=${categorie.idCategorie}"></td>
 						<td><a
 							href="${pageContext.request.contextPath}/client/afficherProduitCat?categorieId=${produit.categorieId}">Afficher
 								Produit</a>
@@ -43,11 +45,6 @@
 		</table>
 	</div>
 
-	<br />
-	<a href="${pageContext.request.contextPath}/client/rechercheParMot"
-		style="text-align: center;">rechercher un produit par mot clé</a>
- 
- 	<br />
-	<a href="<c:url value="/j_spring_security_logout"/>">Se deconnecter</a>
+<%@include file="../templates/footer.jsp" %>
 </body>
 </html>
