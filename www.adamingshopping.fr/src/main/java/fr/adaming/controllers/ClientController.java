@@ -92,6 +92,19 @@ public class ClientController {
 		this.panierService = panierService;
 	}
 
+	@RequestMapping(value = "/photoProd", produces = MediaType.IMAGE_JPEG_VALUE)
+	@ResponseBody
+	public byte[] getPhotoProd (Long idProd) throws IOException {
+		Produit p_rec = new Produit();
+		p_rec.setIdProduit(idProd);
+		Produit p = produitService.consulter(p_rec);
+		if (p.getPhoto() == null) {
+			return new byte[0];
+		} else {
+			return IOUtils.toByteArray(new ByteArrayInputStream(p.getPhoto()));
+		}
+	}
+	
 
 	@RequestMapping(value = "/afficherProduitClient", method = RequestMethod.GET)
 	public ModelAndView afficherListProduit(ModelMap model) {

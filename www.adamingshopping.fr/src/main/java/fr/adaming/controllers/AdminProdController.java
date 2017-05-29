@@ -73,7 +73,7 @@ public class AdminProdController {
 	}
 
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)
-	public String supprimerProduit(ModelMap model, @RequestParam("idProduit") Long id) {
+	public ModelAndView supprimerProduit(ModelMap model, @RequestParam("idProduit") Long id) {
 
 		Produit p_rec = new Produit();
 		p_rec.setIdProduit(id);
@@ -82,7 +82,8 @@ public class AdminProdController {
 
 		List<Produit> listeProduit = produitService.consulterAll();
 		model.addAttribute("listeProduit", listeProduit);
-		return "afficherProduits";
+		return new ModelAndView("afficherProduits", "pProduit", p);
+	
 	}
 
 	@RequestMapping(value = "/formulaireProduit", method = RequestMethod.GET)
@@ -114,13 +115,14 @@ public class AdminProdController {
 	
 	@RequestMapping(value = "/photoProd", produces = MediaType.IMAGE_JPEG_VALUE)
 	@ResponseBody
-	public byte[] getPhoto(Long idProd, Produit p) throws IOException {
-		Produit p_rec=produitService.consulter(p);
-		p.setIdProduit(idProd);
-		if (p_rec.getPhoto() == null) {
+	public byte[] getPhoto(Long idProd) throws IOException {
+		Produit p_rec = new Produit();
+		p_rec.setIdProduit(idProd);
+		Produit p = produitService.consulter(p_rec);
+		if (p.getPhoto() == null) {
 			return new byte[0];
 		} else {
-			return IOUtils.toByteArray(new ByteArrayInputStream(p_rec.getPhoto()));
+			return IOUtils.toByteArray(new ByteArrayInputStream(p.getPhoto()));
 		}
 	}
 	

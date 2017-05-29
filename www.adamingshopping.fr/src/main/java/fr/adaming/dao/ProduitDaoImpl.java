@@ -48,6 +48,8 @@ public class ProduitDaoImpl implements IProduitDao {
 
 	@Override
 	public Produit modifier(Produit p) {
+//		String req="UPDATE Produit as p SET p.description=:pD, p.designation=:pDe,p.photo=:pP,p.prix=:p.pR,p.quantite=:pQ,p.categorieI."
+		
 		s=sf.getCurrentSession();
 		s.update(p);
 		return p;

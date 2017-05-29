@@ -11,10 +11,11 @@
 <link rel="stylesheet" href="<c:url value="/assets/bootstrap.min.js"/>"/>
 <link rel="stylesheet" href="<c:url value="/assets/jquery-3.2.1.min.js"/>"/>
 <title>Formulaire produit</title>
+<%@include file="../templates/Header.jsp" %>
 </head>
 <body>
 
-<%@include file="../templates/navBar.jsp" %>
+<%@include file="../templates/navBar2.jsp" %>
 
 	<div class="container">
 		<h2>Produits</h2>
@@ -39,7 +40,7 @@
 						<td>${produit.description}</td>
 						<td>${produit.prix}</td>
 						<td>${produit.quantite}</td>
-						<td>${produit.photo}</td>
+						<td><img src="photoProd?idProd=${produit.idProduit}" /></td>
 						<td><a href="${pageContext.request.contextPath}/setting/delete?idProduit=${produit.idProduit}">Supprimer</a> | <a href="${pageContext.request.contextPath}/setting/modifierProduit?idProduit=${produit.idProduit}">modifier</a></td>
 					</tr>
 				</tbody>
@@ -65,10 +66,6 @@
   </div>
 </form:form>
 
-	<a href="${pageContext.request.contextPath}/setting/formulaireProduit" style="text-align: center;" >ajouter un produit</a>
-	<br/>
-	<a href="${pageContext.request.contextPath}/setting/rechercheProduit" style="text-align: center;" >rechercher un produit</a>
-	<br/>
 <%@include file="../templates/footer.jsp" %>
 </body>
 </html>

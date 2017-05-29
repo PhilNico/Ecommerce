@@ -18,6 +18,10 @@
 
 <%@include file="../templates/navBar2.jsp" %>
 
+<a style="color: black" class="btn btn-info" href="${pageContext.request.contextPath}/setting/formulaireProduit"
+		style="text-align: center;">ajouter un produit</a>	<a style="color: black" class="btn btn-info" href="${pageContext.request.contextPath}/setting/rechercheProduit"
+		style="text-align: center;">rechercher un produit</a>
+
 	<div class="container">
 		<h2>Produits</h2>
 		<p>Voici la liste des Produits:</p>
@@ -41,9 +45,9 @@
 						<td>${produit.description}</td>
 						<td>${produit.prix}</td>
 						<td>${produit.quantite}</td>
-						<td>${produit.photo}</td>
+						<td><img src="photoProd?idProd=${produit.idProduit}" /></td>
 						<td><a
-							href="${pageContext.request.contextPath}/setting/delete?idProduit=${produit.idProduit}">Supprimer</a>
+							href="${pageContext.request.contextPath}/setting/delete?idProduit=${produit.idProduit}" href="${pageContext.request.contextPath}/settingCat/delete?idProduit=${produit.idProduit}" >Supprimer</a>
 							| <a
 							href="${pageContext.request.contextPath}/setting/modifierProduit?idProduit=${produit.idProduit}">modifier</a></td>
 					</tr>

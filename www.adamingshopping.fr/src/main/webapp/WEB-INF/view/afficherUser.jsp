@@ -16,6 +16,11 @@
 <body>
 <%@include file="../templates/navBar2.jsp"%>
 
+	<a style="color: black" class="btn btn-info"
+		href="${pageContext.request.contextPath}/settingCat/afficherFormUser">Ajouter
+		un user</a>
+	<br />
+
 <div class="container">
 		<h2>Catégorie</h2>
 		<p>Voici la liste des Catégories :</p>
@@ -43,10 +48,7 @@
 			</c:forEach>
 		</table>
 	</div>
-	<a
-		href="${pageContext.request.contextPath}/settingCat/afficherFormUser">Ajouter
-		un user</a>
-	<br />
+
 <!-- 	<a -->
 <%-- 		href="${pageContext.request.contextPath}/settingCat/rechercherCategorie">Rechercher --%>
 <!-- 		une catégorie</a> -->

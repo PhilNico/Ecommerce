@@ -56,10 +56,6 @@
 					<td></td>
 				</tr>
 			</table>
-			<div style="background-color: black">
-				<br /> <img cellpadding="12"
-					src="<c:url value="/resources/images/cardsaccepted.png" />" />
-			</div>
 		</div>
 	</div>
 </body>

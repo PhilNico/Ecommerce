@@ -11,10 +11,12 @@
 <link rel="stylesheet" href="<c:url value="/assets/bootstrap.min.js"/>"/>
 <link rel="stylesheet" href="<c:url value="/assets/jquery-3.2.1.min.js"/>"/>
 <title>Formulaire categorie</title>
+
+<%@include file="../templates/Header.jsp" %>
 </head>
 <body>
 
-<%@include file="../templates/navBar.jsp" %>
+<%@include file="../templates/navBar2.jsp" %>
 
 	<div class="container">
 		<h2>Hover Rows</h2>

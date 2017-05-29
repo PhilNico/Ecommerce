@@ -68,7 +68,7 @@ public class AdminCatController {
 //
 //	}
 
-	@RequestMapping(value = "/delete", method = RequestMethod.GET)
+	@RequestMapping(value = "/delete2", method = RequestMethod.GET)
 	public String supprimerCategorie(ModelMap model, @RequestParam("idCategorie") Long id) {
 
 		Categorie c = categorieService.consulter(id);
@@ -140,6 +140,19 @@ public class AdminCatController {
 
 		return "rechercherCategorie";
 
+	}
+	
+	@RequestMapping(value = "/delete", method = RequestMethod.GET)
+	public String supprimerProduit(ModelMap model, @RequestParam("idProduit") Long id) {
+
+		Produit p_rec = new Produit();
+		p_rec.setIdProduit(id);
+		Produit p = produitService.consulter(p_rec);
+		produitService.supprimer(p);
+
+		List<Produit> listeProduit = produitService.consulterAll();
+		model.addAttribute("listeProduit", listeProduit);
+		return "afficherProduits";
 	}
 	
 	

@@ -16,6 +16,8 @@
 <body>
 	<%@include file="../templates/navBar2.jsp"%>
 
+<a style="color: black" href="${pageContext.request.contextPath}/settingCat/formulaireCategorie" class="btn btn-info" >Ajouter une Catégorie</a>
+
 	<div class="container">
 		<h2>Catégorie</h2>
 		<p>Voici la liste des Catégories :</p>
@@ -37,7 +39,7 @@
 						<td>${categorie.description}</td>
 						<td><img src="photoCat?idCat=${categorie.idCategorie}" /></td>
 						<td><a
-							href="${pageContext.request.contextPath}/settingCat/delete?idCategorie=${categorie.idCategorie}">Supprimer</a>
+							href="${pageContext.request.contextPath}/settingCat/delete2?idCategorie=${categorie.idCategorie}">Supprimer</a>
 							| <a
 							href="${pageContext.request.contextPath}/settingCat/modifier?idCategorie=${categorie.idCategorie}">modifier</a></td>
 					</tr>
@@ -45,13 +47,7 @@
 			</c:forEach>
 		</table>
 	</div>
-	<a
-		href="${pageContext.request.contextPath}/settingCat/formulaireCategorie">Ajouter
-		une catégorie</a>
-	<br />
-	<a
-		href="${pageContext.request.contextPath}/settingCat/rechercherCategorie">Rechercher
-		une catégorie</a>
+
 
 <%@include file="../templates/footer.jsp" %>
 </body>
