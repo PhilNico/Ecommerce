@@ -30,6 +30,7 @@
 					<th>Prix</th>
 					<th>Quantité</th>
 					<th>Photo</th>
+					<th>Opération</th>
 
 				</tr>
 			</thead>
@@ -42,6 +43,7 @@
 						<td>${produit.prix}</td>
 						<td>${produit.quantite}</td>
 						<td>${produit.photo}</td>
+						<td><a href="${pageContext.request.contextPath}/client/formulaireAjout?idProduit=${produit.idProduit}">Ajouter au panier</a></td>
 
 					</tr>
 				</tbody>

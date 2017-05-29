@@ -33,6 +33,9 @@ public class ClientController {
 
 	@Autowired
 	private IClientService cSer;
+	
+	@Autowired
+	private IClientService cSer;
 
 	/**
 	 * @param cSer

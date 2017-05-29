@@ -39,7 +39,7 @@
 						<td>${produit.prix}</td>
 						<td>${produit.quantite}</td>
 						<td>${produit.photo}</td>
-						<td><a href="${pageContext.request.contextPath}/client/formulaireAjout?idProduit=${prod.idProduit}">Ajouter au panier</a></td>
+						<td><a href="${pageContext.request.contextPath}/client/formulaireAjout?idProduit=${produit.idProduit}">Ajouter au panier</a></td>
 					</tr>
 				</tbody>
 			</c:forEach>
