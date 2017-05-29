@@ -21,7 +21,7 @@
 
 	<div class="container">
 		<h2>Produits</h2>
-		<p>Voici la liste des Produits:</p>
+		<p>Voici la liste des Produits de la Catégorie selectionnée:</p>
 		<table class="table table-hover">
 			<thead>
 				<tr>

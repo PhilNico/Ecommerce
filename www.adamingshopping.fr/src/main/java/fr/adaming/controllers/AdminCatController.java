@@ -74,16 +74,16 @@ public class AdminCatController {
 	}
 
 	@RequestMapping(value = "/ajouterCategorie", method = RequestMethod.POST)
-	public ModelAndView ajouterCategorie(Categorie cCat, ModelMap model, MultipartFile file) throws Exception {
+	public ModelAndView ajouterCategorie(@ModelAttribute("cCategorie") Categorie c, ModelMap model, MultipartFile file) throws Exception {
 
 		if (!file.isEmpty()) {
-			cCat.setPhoto(file.getBytes());
+			c.setPhoto(file.getBytes());
 		}
-		if (cCat.getIdCategorie() == null) {
+		if (c.getIdCategorie() == null) {
 
-			categorieService.ajouter(cCat);
+			categorieService.ajouter(c);
 		} else {
-			categorieService.modifier(cCat);
+			categorieService.modifier(c);
 
 		}
 

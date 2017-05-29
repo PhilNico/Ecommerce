@@ -35,7 +35,7 @@
 
 	<c:if test="${not empty erreur}">
 		<h1 style="color: red">Tu t'es trompé sur le Login ou Mdp tu n'as
-			pas plus qu'a trouvé lequel</h1>
+			plus qu'a trouvé lequel</h1>
 	</c:if>
 </body>
 </html>
