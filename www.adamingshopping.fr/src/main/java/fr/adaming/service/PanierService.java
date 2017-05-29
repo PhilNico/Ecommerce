@@ -43,6 +43,7 @@ public class PanierService implements IPanierService {
 			for(LigneCommande ligneCommande : listeLignesCommande){
 				if(lc.getProduit().getDesignation()==ligneCommande.getProduit().getDesignation()){
 				ligneCommande.setQuantite(ligneCommande.getQuantite()+quantite);
+				System.out.println("-----------------------------------------je suis dans la boucle");
 					i = 1;
 					 }
 			}if(i==0){
