@@ -189,5 +189,27 @@ public class ClientController {
 		return "accueil";
 		
 	}
+	
+	@RequestMapping(value = "/deletePanier", method = RequestMethod.GET)
+	public ModelAndView supprimerLignePanier(ModelMap model, @RequestParam("idLigneCommande") Long id) {
+
+		Panier panier =(Panier) session.getAttribute("panier");
+		
+		List<LigneCommande> listeCommande = new ArrayList<LigneCommande>();
+		listeCommande=panier.getListeLignesCommande();
+		
+		
+		listeCommande.remove(id);
+//		for(LigneCommande ligneCommande : listeCommande){
+//			if(id==ligneCommande.getId()){
+//				listeCommande.remove(id);
+//			}
+//		}
+		
+		panier.setListeLignesCommande(listeCommande);
+		session.setAttribute("panier", panier);
+	
+		return new ModelAndView("panier", "pProduit", new Produit());
+	}
 
 }//

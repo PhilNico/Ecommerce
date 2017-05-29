@@ -36,7 +36,7 @@
 						<td>${ligneCommande.produit.designation}</td>
 						<td>${ligneCommande.quantite}</td>
 						<td>${ligneCommande.prix}</td>
-						<td><a href="${pageContext.request.contextPath}/client/formulaireAjout?idProduit=${prod.idProduit}">Modifier</a></td>
+						<td><a href="${pageContext.request.contextPath}/client/deletePanier?idLigneCommande=${ligneCommande.id}">Supprimer</a></td>
 					</tr>
 				</tbody>
 			</c:forEach>
