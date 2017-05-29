@@ -42,7 +42,7 @@
 						<td>${prod.description}</td>
 						<td>${prod.prix}</td>
 						<td>${prod.quantite}</td>
-						<td>${prod.photo}</td>
+						<td><img src="photoProd?idProd=${prod.idProduit}" /></td>
 						<td><a href="${pageContext.request.contextPath}/client/formulaireAjout?idProduit=${prod.idProduit}">Ajouter au panier</a></td>
 					</tr>
 				</tbody>

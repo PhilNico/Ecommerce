@@ -1,12 +1,16 @@
 package fr.adaming.controllers;
 
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -15,6 +19,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -23,6 +28,7 @@ import fr.adaming.model.Commande;
 import fr.adaming.model.LigneCommande;
 import fr.adaming.model.Panier;
 import fr.adaming.model.Produit;
+import fr.adaming.service.ICategorieService;
 import fr.adaming.service.IClientService;
 import fr.adaming.service.ILigneCommandeService;
 import fr.adaming.service.IPanierService;
@@ -36,7 +42,13 @@ public class ClientController {
 	@Autowired
 	private IClientService cSer;
 	
+	@Autowired
+	private ICategorieService categorieService;
+	
 
+	public void setCategorieService(ICategorieService categorieService) {
+		this.categorieService = categorieService;
+	}
 
 	/**
 	 * @param cSer
@@ -91,12 +103,22 @@ public class ClientController {
 	
 	@RequestMapping(value = "/afficherCategories", method = RequestMethod.GET)
 	public ModelAndView afficherListCategorie(ModelMap model) {
-		List<Categorie> listeCategorie = cSer.getAllCategories();
+		List<Categorie> listeCategorie =  categorieService.consulterAll();
 		model.addAttribute("listeCategorie", listeCategorie);
 		return new ModelAndView("afficherCategories","pProduit", new Produit());
 	
 	}
 
+	@RequestMapping(value = "/photoCat", produces = MediaType.IMAGE_JPEG_VALUE)
+	@ResponseBody
+	public byte[] getPhoto(Long idCat) throws IOException {
+		Categorie cat = categorieService.consulter(idCat);
+		if (cat.getPhoto() == null) {
+			return new byte[0];
+		} else {
+			return IOUtils.toByteArray(new ByteArrayInputStream(cat.getPhoto()));
+		}
+	}
 	
 	@RequestMapping(value = "/afficherProduitCat", method = RequestMethod.GET)
 	public ModelAndView supprimerProduit(ModelMap model, @RequestParam("categorieId") Long id) {

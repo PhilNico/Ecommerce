@@ -29,7 +29,7 @@
 					<th>Opération</th>
 				</tr>
 			</thead>
-			<c:forEach var="categorie" items="${listCategorie}">
+			<c:forEach var="categorie" items="${listeCategorie}">
 				<tbody>
 					<tr>
 						<td>${categorie.idCategorie}</td>

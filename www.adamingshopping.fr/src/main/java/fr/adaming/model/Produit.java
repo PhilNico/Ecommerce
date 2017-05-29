@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -25,7 +26,9 @@ public class Produit {
 	private double prix;
 	private int quantite;
 	private boolean selectionne;
-	private String photo;
+	
+	@Lob
+	private byte[] photo;
 	
 	
 
@@ -45,7 +48,7 @@ public class Produit {
 
 
 	public Produit(String designation, String description, double prix, int quantite, boolean selectionne,
-			String photo) {
+			byte[] photo) {
 		super();
 		this.designation = designation;
 		this.description = description;
@@ -61,7 +64,7 @@ public class Produit {
 
 
 	public Produit(Long idProduit, String designation, String description, double prix, int quantite,
-			boolean selectionne, String photo) {
+			boolean selectionne, byte[] photo) {
 		super();
 		this.idProduit = idProduit;
 		this.designation = designation;
@@ -135,12 +138,12 @@ public class Produit {
 	}
 
 
-	public String getPhoto() {
+	public byte[] getPhoto() {
 		return photo;
 	}
 
 
-	public void setPhoto(String photo) {
+	public void setPhoto(byte[] photo) {
 		this.photo = photo;
 	}
 

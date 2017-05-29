@@ -43,8 +43,8 @@ public class AdminCatController {
 
 	@RequestMapping(value = "/afficherCategorieAdmin", method = RequestMethod.GET)
 	public String afficherCategorie(ModelMap model) {
-		List<Categorie> listCategorie = categorieService.consulterAll();
-		model.addAttribute("listCategorie", listCategorie);
+		List<Categorie> listeCategorie = categorieService.consulterAll();
+		model.addAttribute("listeCategorie", listeCategorie);
 		return "afficherCategorieAdmin";
 	}
 
@@ -62,8 +62,8 @@ public class AdminCatController {
 		Categorie c = categorieService.consulter(id);
 		categorieService.supprimer(c);
 
-		List<Categorie> listCategorie = categorieService.consulterAll();
-		model.addAttribute("listCategorie", listCategorie);
+		List<Categorie> listeCategorie = categorieService.consulterAll();
+		model.addAttribute("listeCategorie", listeCategorie);
 
 		return "afficherCategorieAdmin";
 	}
@@ -88,7 +88,7 @@ public class AdminCatController {
 
 		}
 
-		model.addAttribute("listCategorie", categorieService.consulterAll());
+		model.addAttribute("listeCategorie", categorieService.consulterAll());
 
 		return new ModelAndView("afficherCategorieAdmin", "pProduit", new Produit());
 	}
@@ -120,11 +120,11 @@ public class AdminCatController {
 	@RequestMapping(value = "/rechercherCategorie", method = RequestMethod.POST)
 	public String rechercherCat(ModelMap model, @ModelAttribute("cCategorie") Categorie c) {
 
-		List<Categorie> listCategorie = new ArrayList<Categorie>();
+		List<Categorie> listeCategorie = new ArrayList<Categorie>();
 
-		listCategorie.add(categorieService.consulter(c.getIdCategorie()));
+		listeCategorie.add(categorieService.consulter(c.getIdCategorie()));
 
-		model.addAttribute("listCategorie", listCategorie);
+		model.addAttribute("listeCategorie", listeCategorie);
 
 		return "rechercherCategorie";
 

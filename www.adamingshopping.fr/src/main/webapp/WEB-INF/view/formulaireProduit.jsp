@@ -19,7 +19,7 @@
 <h2>Produits</h2>
 		<p>Formulaire d'ajout ou de modification de produit:</p>
 
-<form:form action="ajouterProduit" modelAttribute="pProduit" method="POST" class="form-horizontal">
+<form:form action="ajouterProduit" modelAttribute="pProduit" method="POST" enctype="multipart/form-data" class="form-horizontal">
  
  
       <form:input path="idProduit" type="hidden"/>
@@ -54,10 +54,10 @@
   </div>
   
   
-  <div class="form-group">
+   <div class="form-group">
     <label for="inputPhoto" class="col-sm-2 control-label">Photo</label>
     <div class="col-sm-8">
-      <form:input type="text" class="form-control" id="inputPhoto" placeholder="lien de la photo" path="photo"/>
+      <input type="file" name="file" class="form-control" id="inputPhoto"/>
     </div>
   </div>
   
