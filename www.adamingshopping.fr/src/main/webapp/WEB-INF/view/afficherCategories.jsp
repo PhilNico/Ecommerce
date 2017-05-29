@@ -36,9 +36,7 @@
 						<td>${categorie.idCategorie}</td>
 						<td>${categorie.description}</td>
 						<td><img src="photoCat?idCat=${categorie.idCategorie}"></td>
-						<td><a
-							href="${pageContext.request.contextPath}/client/afficherProduitCat?categorieId=${produit.categorieId}">Afficher
-								Produit</a>
+						<td><a href="${pageContext.request.contextPath}/client/afficherProduitCat?categorieId=${categorie.idCategorie}">Afficher les Produits de la Catégorie</a></td>
 					</tr>
 				</tbody>
 			</c:forEach>
