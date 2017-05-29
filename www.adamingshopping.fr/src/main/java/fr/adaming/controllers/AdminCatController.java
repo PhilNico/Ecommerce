@@ -74,7 +74,7 @@ public class AdminCatController {
 	}
 
 	@RequestMapping(value = "/ajouterCategorie", method = RequestMethod.POST)
-	public String ajouterCategorie(Categorie cCat, ModelMap model, MultipartFile file) throws Exception {
+	public ModelAndView ajouterCategorie(Categorie cCat, ModelMap model, MultipartFile file) throws Exception {
 
 		if (!file.isEmpty()) {
 			cCat.setPhoto(file.getBytes());
@@ -89,7 +89,7 @@ public class AdminCatController {
 
 		model.addAttribute("listCategorie", categorieService.consulterAll());
 
-		return "afficherCategorieAdmin";
+		return new ModelAndView("afficherCategorieAdmin", "pProduit", new Produit());
 	}
 
 	@RequestMapping(value = "/photoCat", produces = MediaType.IMAGE_JPEG_VALUE)

@@ -24,7 +24,7 @@
 			
 			</ul>
 
-			<form:form class="navbar-form navbar-left" action="rechercheParMot"
+			<form:form class="navbar-form navbar-left" action="rechercheParMotAdmin"
 				modelAttribute="pProduit" method="POST">
 				<div class="form-group">
 					<form:input type="text" class="form-control" id="inputmot"

@@ -9,6 +9,6 @@
 <body>
 
 	<h3 style="color: red; text-align: center">Vous n'etes pas autorisé à acceder à cette page</h3>
-	<a href="${pageContext.request.contextPath}/client/accueil">Réssayer</a>
+	<a href="${pageContext.request.contextPath}/setting/afficherProduits">Retour</a>
 </body>
 </html>

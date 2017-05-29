@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import fr.adaming.model.Categorie;
 import fr.adaming.model.Produit;
+import fr.adaming.service.IClientService;
 import fr.adaming.service.IProduitService;
 
 @Controller
@@ -23,9 +24,20 @@ public class AdminProdController {
 
 	@Autowired
 	private IProduitService produitService;
+	
+	@Autowired
+	private IClientService cSer;
 
 	public void setProduitService(IProduitService produitService) {
 		this.produitService = produitService;
+	}
+
+	/**
+	 * @param cSer
+	 *            the cSer to set
+	 */
+	public void setcSer(IClientService cSer) {
+		this.cSer = cSer;
 	}
 
 	@RequestMapping(value = "/afficherProduits", method = RequestMethod.GET)
@@ -34,6 +46,24 @@ public class AdminProdController {
 		model.addAttribute("listeProduit", listeProduit);
 		return new ModelAndView("afficherProduits", "pProduit", new Produit());
 
+	}
+	
+	@RequestMapping(value="/rechercheParMotAdmin", method=RequestMethod.GET)
+	public ModelAndView afficherFormRechercheParMot(){
+		return new ModelAndView("rechercheParMotAdmin","pProduit", new Produit());
+	}
+	
+	
+	@RequestMapping(value="/rechercheParMotAdmin", method=RequestMethod.POST)
+	public ModelAndView rechercheParMot(ModelMap model, @ModelAttribute("pProduit") Produit p){
+
+		Produit p_rec = cSer.getProduitByKeyWord(p);
+		List<Produit> produitListe = new ArrayList<Produit>();
+		produitListe.add(p_rec);
+		model.addAttribute("listeProduitMot", produitListe);
+		
+		return new ModelAndView("rechercheParMotAdmin", "pProduit", p);
+		
 	}
 
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)
