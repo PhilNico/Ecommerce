@@ -14,19 +14,14 @@ import fr.adaming.model.Produit;
 
 @Service
 @Transactional
-public class PanierService implements IPanierService{
-
+public class PanierService implements IPanierService {
 
 	@Autowired
 	IProduitDao produitDao;
-	
-	
 
 	public void setProduitDao(IProduitDao produitDao) {
 		this.produitDao = produitDao;
 	}
-
-
 
 	@Override
 	public Panier ajouterAuPanier(Produit p, int quantite, Panier panier) {
@@ -34,33 +29,34 @@ public class PanierService implements IPanierService{
 		
 		p=produitDao.consulter(p);
 		
-	//	if(quantite < p.getQuantite()){
+	if(quantite <= p.getQuantite()){
 			
 			p.setQuantite(p.getQuantite()-quantite);
 			LigneCommande lc = new LigneCommande();
 			lc.setProduit(p);
 			lc.setPrix(p.getPrix()*quantite);
 			lc.setQuantite(quantite);
-//			int i = 0;
-//		
+			int i = 0;
 			List<LigneCommande> listeLignesCommande= new ArrayList<LigneCommande>();
-//			listeLignesCommande=panier.getListeLignesCommande();
-//			for(LigneCommande ligneCommande : listeLignesCommande){
-//			if(lc.getProduit().getDesignation()==ligneCommande.getProduit().getDesignation(){
-//					ligneCommande.setQuantite(ligneCommande.getQuantite()+quantite);
-//					 i = 1;}
-//			}if(i==0){
+			listeLignesCommande=panier.getListeLignesCommande();
 			
-			//listeLignesCommande=panier.getListeLignesCommande();
+			for(LigneCommande ligneCommande : listeLignesCommande){
+				if(lc.getProduit().getDesignation()==ligneCommande.getProduit().getDesignation()){
+				ligneCommande.setQuantite(ligneCommande.getQuantite()+quantite);
+					i = 1;
+					 }
+			}if(i==0){
+			
+				listeLignesCommande=panier.getListeLignesCommande();
 			
 			listeLignesCommande.add(lc);
 			
 			panier.setListeLignesCommande(listeLignesCommande);
-		//	}
+		}
 			return panier;
-	//	}else{
-	//		return panier;
-	//}
+	}else{
+			return panier;
+	}
 		
 		
 		
@@ -80,4 +76,4 @@ public class PanierService implements IPanierService{
 		
 	}
 
-}//
+}

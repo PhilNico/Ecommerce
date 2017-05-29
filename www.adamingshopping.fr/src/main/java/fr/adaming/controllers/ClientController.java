@@ -34,8 +34,7 @@ public class ClientController {
 	@Autowired
 	private IClientService cSer;
 	
-	@Autowired
-	private IClientService cSer;
+
 
 	/**
 	 * @param cSer
@@ -130,7 +129,12 @@ public class ClientController {
 		
 		
 		if(session.getAttribute("panier")==null){
-		Panier panier = new Panier();		
+			
+			
+		Panier panier = new Panier();
+		
+		List<LigneCommande> listeLignesCommande= new ArrayList<LigneCommande>();
+		panier.setListeLignesCommande(listeLignesCommande);
 		session.setAttribute("panier", panier);
 		
 		}else{
