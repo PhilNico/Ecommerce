@@ -22,6 +22,16 @@ public class PanierService implements IPanierService {
 	public void setProduitDao(IProduitDao produitDao) {
 		this.produitDao = produitDao;
 	}
+	
+	@Autowired
+	ILigneCommandeService ligneCommandeDao;
+	
+
+	public void setLigneCommandeDao(ILigneCommandeService ligneCommandeDao) {
+		this.ligneCommandeDao = ligneCommandeDao;
+	}
+
+
 
 	@Override
 	public Panier ajouterAuPanier(Produit p, int quantite, Panier panier) {
@@ -36,6 +46,8 @@ public class PanierService implements IPanierService {
 			lc.setProduit(p);
 			lc.setPrix(p.getPrix()*quantite);
 			lc.setQuantite(quantite);
+			ligneCommandeDao.ajouterLC(lc);
+			lc=ligneCommandeDao.getById(lc.getId());
 			int i = 0;
 			List<LigneCommande> listeLignesCommande= new ArrayList<LigneCommande>();
 			listeLignesCommande=panier.getListeLignesCommande();

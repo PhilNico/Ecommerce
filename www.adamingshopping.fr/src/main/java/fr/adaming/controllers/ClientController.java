@@ -1,6 +1,7 @@
 package fr.adaming.controllers;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -23,6 +24,7 @@ import fr.adaming.model.LigneCommande;
 import fr.adaming.model.Panier;
 import fr.adaming.model.Produit;
 import fr.adaming.service.IClientService;
+import fr.adaming.service.ILigneCommandeService;
 import fr.adaming.service.IPanierService;
 import fr.adaming.service.IProduitService;
 
@@ -44,7 +46,8 @@ public class ClientController {
 		this.cSer = cSer;
 	}
 	
-	
+	@Autowired
+	private ILigneCommandeService ligneCommandeService;
 	
 	@Autowired
 	private IPanierService panierService;
@@ -57,6 +60,11 @@ public class ClientController {
 	
 	
 	
+
+	public void setLigneCommandeService(ILigneCommandeService ligneCommandeService) {
+		this.ligneCommandeService = ligneCommandeService;
+	}
+
 
 	public void setSession(HttpSession session) {
 		this.session = session;
@@ -194,17 +202,38 @@ public class ClientController {
 	public ModelAndView supprimerLignePanier(ModelMap model, @RequestParam("idLigneCommande") Long id) {
 
 		Panier panier =(Panier) session.getAttribute("panier");
+	
+		List<LigneCommande> listeCommande = panier.getListeLignesCommande();
+	
+	
 		
-		List<LigneCommande> listeCommande = new ArrayList<LigneCommande>();
-		listeCommande=panier.getListeLignesCommande();
 		
 		
-		listeCommande.remove(id);
-//		for(LigneCommande ligneCommande : listeCommande){
-//			if(id==ligneCommande.getId()){
-//				listeCommande.remove(id);
+
+//		
+//		for(int i=0; i<listeCommande.size(); i++) {
+//
+//			System.out.println(i);
+//			System.out.println(listeCommande.indexOf(ligneCommandeService.getById(id)));
+//			if(i==listeCommande.indexOf(ligneCommandeService.getById(id))){
+//				System.out.println(i);
+//				listeCommande.remove(i);
 //			}
+//			
 //		}
+		
+		
+		
+		
+		
+		for(LigneCommande ligneCommande : listeCommande){
+			
+			if(id==ligneCommande.getId()){
+				
+				System.out.println(ligneCommande);
+				listeCommande.remove(listeCommande.indexOf(ligneCommande));
+			}
+		}
 		
 		panier.setListeLignesCommande(listeCommande);
 		session.setAttribute("panier", panier);
