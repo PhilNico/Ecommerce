@@ -48,13 +48,13 @@ public class AdminCatController {
 		return "afficherCategorieAdmin";
 	}
 
-	@RequestMapping(value = "/afficherProduits", method = RequestMethod.GET)
-	public ModelAndView afficherListProduit(ModelMap model) {
-		List<Produit> listeProduit = produitService.consulterAll();
-		model.addAttribute("listeProduit", listeProduit);
-		return new ModelAndView("afficherProduits", "pProduit", new Produit());
-
-	}
+//	@RequestMapping(value = "/afficherProduits", method = RequestMethod.GET)
+//	public ModelAndView afficherListProduit(ModelMap model) {
+//		List<Produit> listeProduit = produitService.consulterAll();
+//		model.addAttribute("listeProduit", listeProduit);
+//		return new ModelAndView("afficherProduits", "pProduit", new Produit());
+//
+//	}
 
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)
 	public String supprimerCategorie(ModelMap model, @RequestParam("idCategorie") Long id) {
@@ -75,9 +75,10 @@ public class AdminCatController {
 
 	@RequestMapping(value = "/ajouterCategorie", method = RequestMethod.POST)
 	public ModelAndView ajouterCategorie(@ModelAttribute("cCategorie") Categorie c, ModelMap model, MultipartFile file) throws Exception {
-
-		if (!file.isEmpty()) {
+		
+		if (file==null || !file.isEmpty()) {
 			c.setPhoto(file.getBytes());
+			System.out.println("------------------------------"+file);
 		}
 		if (c.getIdCategorie() == null) {
 

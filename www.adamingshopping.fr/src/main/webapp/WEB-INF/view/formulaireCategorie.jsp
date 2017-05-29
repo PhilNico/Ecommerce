@@ -19,7 +19,7 @@
 <h2>Catégorie</h2>
 		<p>Formulaire d'ajout ou de modification de categorie:</p>
 
-<form:form action="ajouterCategorie" modelAttribute="cCategorie" method="POST"  enctype="multipart/form-data" class="form-horizontal" >
+<form:form action="ajouterCategorie" modelAttribute="cCategorie" method="POST" enctype="multipart/form-data" class="form-horizontal" >
  
  
       <form:input path="idCategorie" type="hidden"/>

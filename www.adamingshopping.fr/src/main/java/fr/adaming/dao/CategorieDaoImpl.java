@@ -21,7 +21,7 @@ public class CategorieDaoImpl implements ICategorieDao{
 
 	@Override
 	public void ajouter(Categorie c) {
-		s = sf.getCurrentSession();
+		s = sf.openSession();
 		s.save(c);
 		
 	}
