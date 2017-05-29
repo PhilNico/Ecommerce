@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.print.DocFlavor.STRING;
+
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -20,8 +22,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 import fr.adaming.model.Categorie;
 import fr.adaming.model.Produit;
+import fr.adaming.model.User;
 import fr.adaming.service.ICategorieService;
 import fr.adaming.service.IProduitService;
+import fr.adaming.service.IUserService;
 
 @Controller
 @RequestMapping("/settingCat")
@@ -32,6 +36,14 @@ public class AdminCatController {
 
 	@Autowired
 	private IProduitService produitService;
+	
+	@Autowired
+	private IUserService userService;
+
+	
+	public void setUserService(IUserService userService) {
+		this.userService = userService;
+	}
 
 	public void setCategorieService(ICategorieService categorieService) {
 		this.categorieService = categorieService;
@@ -129,5 +141,51 @@ public class AdminCatController {
 		return "rechercherCategorie";
 
 	}
+	
+	
+	@RequestMapping(value="/afficherUser", method= RequestMethod.GET)
+	public String afficherUser(ModelMap model){
+		List<User> listeUser=userService.consulterAll();
+		model.addAttribute("listeUser", listeUser);
+		return "afficherUser";
+		
+	}
+	
+	
+	@RequestMapping(value="/afficherFormUser", method=RequestMethod.GET)
+	public ModelAndView afficherFormUser(){
+		return new ModelAndView("formulaireAjoutUser", "uUser", new User());
+	}
 
+	
+	@RequestMapping(value="/ajouterUser", method=RequestMethod.POST)
+	public String ajouterUser(ModelMap model, @ModelAttribute("uUser") User u){
+		
+		if(u.getId()==0){
+			userService.ajouterUser(u);
+		}else{
+			userService.modifier(u);
+		}
+		
+		List<User> listeUser=userService.consulterAll();
+		model.addAttribute("listeUser", listeUser);
+		return "afficherUser";
+	}
+	
+	@RequestMapping(value="/deleteUser", method=RequestMethod.GET)
+	public String supprimerUser(ModelMap model, @RequestParam("id") int id){
+		userService.supprimerUser(id);
+		List<User> listeUser=userService.consulterAll();
+		model.addAttribute("listeUser", listeUser);
+		return "afficherUser";
+	}
+	
+	@RequestMapping(value="modifierUser", method=RequestMethod.GET)
+	public ModelAndView modifierUser(@RequestParam("id") int id){
+		User user_rec = userService.getUserById(id);
+		return new ModelAndView("formulaireAjoutUser", "uUser", user_rec);
+		
+	}
+	
+	
 }

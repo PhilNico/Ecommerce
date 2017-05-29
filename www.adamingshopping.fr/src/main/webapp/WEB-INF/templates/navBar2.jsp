@@ -15,6 +15,8 @@
 			<a class="navbar-brand"
 				href="${pageContext.request.contextPath}/settingCat/afficherCategorieAdmin">Catégories</a> <a class="navbar-brand"
 				href="${pageContext.request.contextPath}/setting/afficherProduits">Produits</a>
+				<a class="navbar-brand"
+				href="${pageContext.request.contextPath}/settingCat/afficherUser">Users</a>
 		</div>
 
 		<!-- Collect the nav links, forms, and other content for toggling -->
