@@ -18,17 +18,14 @@
 	</bean>
 
 	<!-- Partie des URL protégées -->
-	<security:http>
+	<security:http use-expressions="true">
 		<!-- Les URL protégées et les autorisations -->
 		<security:intercept-url pattern="/setting/**"
-			access="ROLE_ADMIN_PROD" />
+			access="hasAnyRole('ROLE_ADMIN_PROD','ROLE_ADMIN_CAT')" />
 
 		<security:intercept-url pattern="/settingCat/**"
-			access="ROLE_ADMIN_CAT" />
-			
+			access="hasRole('ROLE_ADMIN_CAT')"  />
 
-			
-			
 		<!-- utiliser un formulaire perso -->
 		<security:form-login login-page="/login"
 			authentication-failure-url="/loginEchec" />
@@ -40,7 +37,7 @@
 		<security:access-denied-handler
 			error-page="/denied" />
 	</security:http>
-	
+
 	<!-- Partie des Authentification -->
 	<security:authentication-manager>
 		<security:authentication-provider>

@@ -24,8 +24,7 @@
 		<table class="table table-hover">
 			<thead>
 				<tr>
-					<th>ID Produit</th>
-					<th>Designation</th>
+					<th>Le petit Nom</th>
 					<th>Description</th>
 					<th>Prix</th>
 					<th>Quantité</th>
@@ -37,7 +36,6 @@
 			<c:forEach var="produit" items="${listeProduit}">
 				<tbody>
 					<tr>
-						<td>${produit.idProduit}</td>
 						<td>${produit.designation}</td>
 						<td>${produit.description}</td>
 						<td>${produit.prix}</td>

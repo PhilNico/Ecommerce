@@ -26,7 +26,7 @@
 			<thead>
 				<tr>
 				
-					<th>Designation</th>
+					<th>Le petit Nom</th>
 					<th>Description</th>
 					<th>Prix</th>
 					<th>Quantité disponible</th>

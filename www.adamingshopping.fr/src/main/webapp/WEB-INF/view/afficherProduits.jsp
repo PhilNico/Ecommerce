@@ -55,15 +55,6 @@
 			</c:forEach>
 		</table>
 	</div>
-
-	<a href="${pageContext.request.contextPath}/setting/formulaireProduit"
-		style="text-align: center;">ajouter un produit</a>
-	<br />
-	<a href="${pageContext.request.contextPath}/setting/rechercheProduit"
-		style="text-align: center;">rechercher un produit</a>
-	<br />
-	<a href="${pageContext.request.contextPath}/client/rechercheParMot"
-		style="text-align: center;">rechercher un produit par mot clé</a>
  
  <%@include file="../templates/footer.jsp" %>
  

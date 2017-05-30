@@ -33,7 +33,7 @@
 			<c:forEach var="categorie" items="${listeCategorie}">
 				<tbody>
 					<tr>
-						<td>${categorie.idCategorie}</td>
+						<td>${categorie.nomCategorie}</td>
 						<td>${categorie.description}</td>
 						<td><img src="photoCat?idCat=${categorie.idCategorie}"></td>
 						<td><a href="${pageContext.request.contextPath}/client/afficherProduitCat?categorieId=${categorie.idCategorie}">Afficher les Produits de la Catégorie</a></td>
