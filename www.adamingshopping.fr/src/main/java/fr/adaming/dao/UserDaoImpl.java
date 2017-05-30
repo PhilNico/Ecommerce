@@ -14,9 +14,9 @@ import fr.adaming.model.User;
 public class UserDaoImpl implements IUserDao{
 
 	@Autowired
-	SessionFactory sf;
+	private SessionFactory sf;
 	
-	Session s;
+	private Session s;
 	
 	public void setSf(SessionFactory sf) {
 		this.sf = sf;
@@ -37,8 +37,9 @@ public class UserDaoImpl implements IUserDao{
 
 	@Override
 	public User getUserById(int id) {
-	
-		return (User) s.get(User.class, id);
+		s=sf.getCurrentSession();
+		User urec=(User) s.get(User.class, id);
+		return urec;
 	}
 
 	@Override
