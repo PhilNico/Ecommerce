@@ -16,24 +16,24 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name="commandes")
+@Table(name = "commandes")
 public class Commande {
-	
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idCommande;
-	
+
 	@Temporal(TemporalType.DATE)
 	private Date dateCommande;
-	
-	@OneToMany(mappedBy="commande")
+
+	@OneToMany(mappedBy = "commande")
 	private List<LigneCommande> listeLigneCommande;
-	
+
 	@ManyToOne
-	@JoinColumn(name="clientId",referencedColumnName="idClient")
+	@JoinColumn(name = "clientId", referencedColumnName = "idClient")
 	private Client client;
 
-	//Constructeur vide
+	// Constructeur vide
 	public Commande() {
 		super();
 	}
@@ -73,10 +73,11 @@ public class Commande {
 	}
 
 	/**
-	 * @param collection the listeLigneCommande to set
+	 * @param collection
+	 *            the listeLigneCommande to set
 	 */
 	public void setListeLigneCommande(List<LigneCommande> ligneCommande) {
-		this.listeLigneCommande =ligneCommande;
+		this.listeLigneCommande = ligneCommande;
 	}
 
 	/**
@@ -87,13 +88,11 @@ public class Commande {
 	}
 
 	/**
-	 * @param client the client to set
+	 * @param client
+	 *            the client to set
 	 */
 	public void setClient(Client client) {
 		this.client = client;
 	}
 
-
-	
-
-}//
+}

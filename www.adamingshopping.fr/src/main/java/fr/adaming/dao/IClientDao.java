@@ -30,4 +30,4 @@ public interface IClientDao {
 	public Commande enregisterCommande(Panier panier, Client c);
 	
 
-}//
+}

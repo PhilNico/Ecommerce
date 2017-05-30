@@ -14,38 +14,31 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="produits")
+@Table(name = "produits")
 public class Produit {
-	
-	
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idProduit;
 	private String designation;
 	private String description;
 	private double prix;
 	private int quantite;
 	private boolean selectionne;
-	
+
 	@Lob
 	private byte[] photo;
-	
-	
 
-
-	@OneToMany(mappedBy="produit")
+	@OneToMany(mappedBy = "produit")
 	private List<LigneCommande> listeLigneCommande;
-	
+
 	@ManyToOne
-	@JoinColumn(name="categorieId",referencedColumnName="idCategorie")
+	@JoinColumn(name = "categorieId", referencedColumnName = "idCategorie")
 	private Categorie categorie;
-	
+
 	public Produit() {
 		super();
 	}
-
-
-
 
 	public Produit(String designation, String description, double prix, int quantite, boolean selectionne,
 			byte[] photo) {
@@ -57,11 +50,6 @@ public class Produit {
 		this.selectionne = selectionne;
 		this.photo = photo;
 	}
-
-
-
-
-
 
 	public Produit(Long idProduit, String designation, String description, double prix, int quantite,
 			boolean selectionne, byte[] photo) {
@@ -75,80 +63,61 @@ public class Produit {
 		this.photo = photo;
 	}
 
-
-
-
 	public Long getIdProduit() {
 		return idProduit;
 	}
-
 
 	public void setIdProduit(Long idProduit) {
 		this.idProduit = idProduit;
 	}
 
-
 	public String getDesignation() {
 		return designation;
 	}
-
 
 	public void setDesignation(String designation) {
 		this.designation = designation;
 	}
 
-
 	public String getDescription() {
 		return description;
 	}
-
 
 	public void setDescription(String description) {
 		this.description = description;
 	}
 
-
 	public double getPrix() {
 		return prix;
 	}
-
 
 	public void setPrix(double prix) {
 		this.prix = prix;
 	}
 
-
 	public int getQuantite() {
 		return quantite;
 	}
-
 
 	public void setQuantite(int quantite) {
 		this.quantite = quantite;
 	}
 
-
 	public boolean isSelectionne() {
 		return selectionne;
 	}
-
 
 	public void setSelectionne(boolean selectionne) {
 		this.selectionne = selectionne;
 	}
 
-
 	public byte[] getPhoto() {
 		return photo;
 	}
 
-
 	public void setPhoto(byte[] photo) {
 		this.photo = photo;
 	}
-
-	
-	
 
 	/**
 	 * @return the listeLigneCommande
@@ -157,14 +126,13 @@ public class Produit {
 		return listeLigneCommande;
 	}
 
-
 	/**
-	 * @param listeLigneCommande the listeLigneCommande to set
+	 * @param listeLigneCommande
+	 *            the listeLigneCommande to set
 	 */
 	public void setListeLigneCommande(List<LigneCommande> listeLigneCommande) {
 		this.listeLigneCommande = listeLigneCommande;
 	}
-
 
 	/**
 	 * @return the categorie
@@ -173,16 +141,13 @@ public class Produit {
 		return categorie;
 	}
 
-
 	/**
-	 * @param categorie the categorie to set
+	 * @param categorie
+	 *            the categorie to set
 	 */
 	public void setCategorie(Categorie categorie) {
 		this.categorie = categorie;
 	}
-
-
-
 
 	@Override
 	public String toString() {
@@ -191,9 +156,4 @@ public class Produit {
 				+ ", categorie=" + categorie + "]";
 	}
 
-	
-
-
-	
-}//
-
+}

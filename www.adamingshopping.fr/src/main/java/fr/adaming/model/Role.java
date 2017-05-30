@@ -10,19 +10,19 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="roles")
+@Table(name = "roles")
 public class Role {
-	
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="id_r")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_r")
 	private int id;
-	
-	@Column(name="rolename")
+
+	@Column(name = "rolename")
 	private String roleName;
-	
+
 	@ManyToOne
-	@JoinColumn(name="user_id",referencedColumnName="id_u")
+	@JoinColumn(name = "user_id", referencedColumnName = "id_u")
 	private User user;
 
 	/**
@@ -58,7 +58,8 @@ public class Role {
 	}
 
 	/**
-	 * @param id the id to set
+	 * @param id
+	 *            the id to set
 	 */
 	public void setId(int id) {
 		this.id = id;
@@ -72,7 +73,8 @@ public class Role {
 	}
 
 	/**
-	 * @param rolename the rolename to set
+	 * @param rolename
+	 *            the rolename to set
 	 */
 	public void setRolename(String rolename) {
 		this.roleName = rolename;
@@ -86,11 +88,11 @@ public class Role {
 	}
 
 	/**
-	 * @param user the user to set
+	 * @param user
+	 *            the user to set
 	 */
 	public void setUser(User user) {
 		this.user = user;
 	}
 
-	
 }

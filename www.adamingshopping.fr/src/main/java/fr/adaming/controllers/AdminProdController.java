@@ -30,7 +30,7 @@ public class AdminProdController {
 
 	@Autowired
 	private IProduitService produitService;
-	
+
 	@Autowired
 	private IClientService cSer;
 
@@ -53,23 +53,22 @@ public class AdminProdController {
 		return new ModelAndView("afficherProduits", "pProduit", new Produit());
 
 	}
-	
-	@RequestMapping(value="/rechercheParMotAdmin", method=RequestMethod.GET)
-	public ModelAndView afficherFormRechercheParMot(){
-		return new ModelAndView("rechercheParMotAdmin","pProduit", new Produit());
+
+	@RequestMapping(value = "/rechercheParMotAdmin", method = RequestMethod.GET)
+	public ModelAndView afficherFormRechercheParMot() {
+		return new ModelAndView("rechercheParMotAdmin", "pProduit", new Produit());
 	}
-	
-	
-	@RequestMapping(value="/rechercheParMotAdmin", method=RequestMethod.POST)
-	public ModelAndView rechercheParMot(ModelMap model, @ModelAttribute("pProduit") Produit p){
+
+	@RequestMapping(value = "/rechercheParMotAdmin", method = RequestMethod.POST)
+	public ModelAndView rechercheParMot(ModelMap model, @ModelAttribute("pProduit") Produit p) {
 
 		Produit p_rec = cSer.getProduitByKeyWord(p);
 		List<Produit> produitListe = new ArrayList<Produit>();
 		produitListe.add(p_rec);
 		model.addAttribute("listeProduitMot", produitListe);
-		
+
 		return new ModelAndView("rechercheParMotAdmin", "pProduit", p);
-		
+
 	}
 
 	@RequestMapping(value = "/deleteProd", method = RequestMethod.GET)
@@ -83,36 +82,34 @@ public class AdminProdController {
 		List<Produit> listeProduit = produitService.consulterAll();
 		model.addAttribute("listeProduit", listeProduit);
 		return new ModelAndView("afficherProduits", "pProduit", p);
-	
+
 	}
 
 	@RequestMapping(value = "/formulaireProduit", method = RequestMethod.GET)
 	public ModelAndView afficherFormAjout() {
 		return new ModelAndView("formulaireProduit", "pProduit", new Produit());
 	}
-	
-	
 
 	@RequestMapping(value = "/ajouterProduit", method = RequestMethod.POST)
-	public ModelAndView ajouterProduit(@ModelAttribute("pProduit") Produit p, ModelMap model, MultipartFile file) throws Exception {
+	public ModelAndView ajouterProduit(@ModelAttribute("pProduit") Produit p, ModelMap model, MultipartFile file)
+			throws Exception {
 
-		if (file==null || !file.isEmpty()) {
+		if (file == null || !file.isEmpty()) {
 			p.setPhoto(file.getBytes());
 		}
-		
-		if(p.getIdProduit()==null){
+
+		if (p.getIdProduit() == null) {
 			produitService.ajouter(p);
-		}else{
+		} else {
 			produitService.modifier(p);
 		}
-		
+
 		List<Produit> listeProduit = produitService.consulterAll();
 		model.addAttribute("listeProduit", listeProduit);
 
 		return new ModelAndView("afficherProduits", "pProduit", new Produit());
 	}
-	
-	
+
 	@RequestMapping(value = "/photoProd", produces = MediaType.IMAGE_JPEG_VALUE)
 	@ResponseBody
 	public byte[] getPhoto(Long idProd) throws IOException {
@@ -125,89 +122,33 @@ public class AdminProdController {
 			return IOUtils.toByteArray(new ByteArrayInputStream(p.getPhoto()));
 		}
 	}
-	
-	
-	
-	
-	
-	
-	@RequestMapping(value="/modifierProduit", method=RequestMethod.GET)
-	public ModelAndView afficherFormModif(ModelMap model, @RequestParam("idProduit") Long id){
-		
-		
-		
-		Produit p_rec= new Produit();
+
+	@RequestMapping(value = "/modifierProduit", method = RequestMethod.GET)
+	public ModelAndView afficherFormModif(ModelMap model, @RequestParam("idProduit") Long id) {
+
+		Produit p_rec = new Produit();
 		p_rec.setIdProduit(id);
-		p_rec=produitService.consulter(p_rec);
-		
+		p_rec = produitService.consulter(p_rec);
+
 		return new ModelAndView("formulaireProduit", "pProduit", p_rec);
-		
+
 	}
-	
-	@RequestMapping(value="/rechercheProduit", method=RequestMethod.GET)
-	public ModelAndView afficherFormRecherche(){
-		return new ModelAndView("rechercheProduit","pProduit", new Produit());
+
+	@RequestMapping(value = "/rechercheProduit", method = RequestMethod.GET)
+	public ModelAndView afficherFormRecherche() {
+		return new ModelAndView("rechercheProduit", "pProduit", new Produit());
 	}
-	
-	@RequestMapping(value="/rechercheProduit", method=RequestMethod.POST)
-	public String rechercheProduit(ModelMap model, @ModelAttribute("pProduit") Produit p ){
-		
+
+	@RequestMapping(value = "/rechercheProduit", method = RequestMethod.POST)
+	public String rechercheProduit(ModelMap model, @ModelAttribute("pProduit") Produit p) {
+
 		Produit p_rec = produitService.consulter(p);
 		List<Produit> listeProduit = new ArrayList<Produit>();
 		listeProduit.add(p_rec);
 		model.addAttribute("listeProduit", listeProduit);
-		
+
 		return "rechercheProduit";
-		
+
 	}
 
 }
-
-//
-// @RequestMapping(value="/modifier", method=RequestMethod.POST)
-// public String modifierProduit(ModelMap model, @ModelAttribute("prod")
-// Produit p){
-//
-// produitService.modifier(p);
-//
-// return "afficherProduits";
-//
-// }
-
-// @RequestMapping(value="/consulterProduit", method=RequestMethod.POST)
-// public String consulterProduit(ModelMap model, @ModelAttribute("prod")
-// Produit p ){
-//
-// Produit prod_rec = produitService.consulter(p);
-// List<Produit> listeUnProduit = new ArrayList<Produit>();
-// listeUnProduit.add(prod_rec);
-// model.addAttribute("listeUnProduit", listeUnProduit);
-// return "afficherUnProduit";
-//
-// }
-//
-//
-
-// public String afficherForpProduit(Model)
-
-// public String afficherForpProduit()
-//
-// @RequestMapping(value="/modifier", method=RequestMethod.POST)
-// public String modifierProduit(ModelMap model, @ModelAttribute("prod")
-// Produit p){
-//
-// produitService.modifier(p);
-//
-// return "afficherProduits";
-//
-// }
-
-// @RequestMapping(value="/ajouter", method=RequestMethod.POST)
-// public String ajouterProduit(ModelMap model,
-// @ModelAttribute("prod")Produit p){
-//
-// produitService.ajouter(p);
-//
-// return "afficherProduits";
-//
-// }//

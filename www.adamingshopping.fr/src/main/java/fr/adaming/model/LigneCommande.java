@@ -13,17 +13,17 @@ import javax.persistence.Table;
 public class LigneCommande {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private int quantite;
 	private double prix;
 
 	@ManyToOne
-	@JoinColumn(name="produitId",referencedColumnName="idProduit")
+	@JoinColumn(name = "produitId", referencedColumnName = "idProduit")
 	private Produit produit;
 
 	@ManyToOne
-	@JoinColumn(name="commandeId",referencedColumnName="idCommande")
+	@JoinColumn(name = "commandeId", referencedColumnName = "idCommande")
 	private Commande commande;
 
 	// Constructeur vide
@@ -52,7 +52,8 @@ public class LigneCommande {
 	}
 
 	/**
-	 * @param id the id to set
+	 * @param id
+	 *            the id to set
 	 */
 	public void setId(Long id) {
 		this.id = id;
@@ -66,7 +67,8 @@ public class LigneCommande {
 	}
 
 	/**
-	 * @param quantite the quantite to set
+	 * @param quantite
+	 *            the quantite to set
 	 */
 	public void setQuantite(int quantite) {
 		this.quantite = quantite;
@@ -80,7 +82,8 @@ public class LigneCommande {
 	}
 
 	/**
-	 * @param prix the prix to set
+	 * @param prix
+	 *            the prix to set
 	 */
 	public void setPrix(double prix) {
 		this.prix = prix;
@@ -94,7 +97,8 @@ public class LigneCommande {
 	}
 
 	/**
-	 * @param produit the produit to set
+	 * @param produit
+	 *            the produit to set
 	 */
 	public void setProduit(Produit produit) {
 		this.produit = produit;
@@ -108,7 +112,8 @@ public class LigneCommande {
 	}
 
 	/**
-	 * @param commande the commande to set
+	 * @param commande
+	 *            the commande to set
 	 */
 	public void setCommande(Commande commande) {
 		this.commande = commande;
@@ -120,8 +125,4 @@ public class LigneCommande {
 				+ ", commande=" + commande + "]";
 	}
 
-
-	
-	
-
-}//
+}
