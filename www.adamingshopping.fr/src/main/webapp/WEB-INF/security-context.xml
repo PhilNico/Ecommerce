@@ -20,6 +20,12 @@
 	<!-- Partie des URL protégées -->
 	<security:http use-expressions="true">
 		<!-- Les URL protégées et les autorisations -->
+		
+		<security:intercept-url pattern="/client/validerPanier"
+			access="hasAnyRole('ROLE_USER')" />
+		
+		
+		
 		<security:intercept-url pattern="/setting/**"
 			access="hasAnyRole('ROLE_ADMIN_PROD','ROLE_ADMIN_CAT')" />
 
