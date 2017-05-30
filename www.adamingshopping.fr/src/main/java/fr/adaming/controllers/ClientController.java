@@ -23,6 +23,7 @@ import fr.adaming.model.Categorie;
 import fr.adaming.model.LigneCommande;
 import fr.adaming.model.Panier;
 import fr.adaming.model.Produit;
+import fr.adaming.model.User;
 import fr.adaming.service.ICategorieService;
 import fr.adaming.service.IClientService;
 import fr.adaming.service.ILigneCommandeService;
@@ -228,6 +229,13 @@ public class ClientController {
 		model.addAttribute("listeCommande", listeCommande);
 
 		return new ModelAndView("panier", "pProduit", new Produit());
+	}
+	
+	
+	@RequestMapping(value ="/ajouterClient", method= RequestMethod.GET)
+	public ModelAndView ajouterClient(){
+		return new ModelAndView("formulaireClient", "uUser", new User());
+		
 	}
 
 }
