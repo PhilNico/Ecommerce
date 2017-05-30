@@ -150,14 +150,14 @@ public class ClientController {
 	}
 
 	@RequestMapping(value = "/rechercheParMot", method = RequestMethod.POST)
-	public ModelAndView rechercheParMot(ModelMap model, @ModelAttribute("pProduit") Produit p) {
+	public ModelAndView rechercheParMot(ModelMap model, @ModelAttribute("pProduit") String mc) {
 
-		Produit p_rec = cSer.getProduitByKeyWord(p);
+		Produit p_rec = (Produit) cSer.getProduitByKeyWord(mc);
 		List<Produit> produitListe = new ArrayList<Produit>();
 		produitListe.add(p_rec);
 		model.addAttribute("listeProduitMot", produitListe);
 
-		return new ModelAndView("rechercheParMot", "pProduit", p);
+		return new ModelAndView("rechercheParMot", "pProduit", mc);
 
 	}
 

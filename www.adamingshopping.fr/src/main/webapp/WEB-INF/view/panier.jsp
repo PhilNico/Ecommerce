@@ -43,7 +43,7 @@
 		</table>
 	</div>
 
-
+<a style="color: black" href="${pageContext.request.contextPath}/client/validerPanier" class="btn btn-info" >Valider</a>
 
  <%@include file="../templates/footer.jsp" %>
 </body>

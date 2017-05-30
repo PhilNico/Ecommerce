@@ -21,7 +21,7 @@ public interface IClientDao {
 	
 	public List<Produit> getProduitSelect();
 	
-	public Produit getProduitByKeyWord (Produit p);
+	public List<Produit> getProduitByKeyWord (String mc);
 	
 	public Produit addProduitToPanier(Produit p, Client c);
 	

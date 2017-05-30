@@ -33,7 +33,7 @@
       
       <form:form class="navbar-form navbar-left" action="rechercheParMot" modelAttribute="pProduit" method="POST">
         <div class="form-group">
-          <form:input type="text" class="form-control" id="inputmot" placeholder="Search" path="designation"/>
+          <input type="text" class="form-control" id="inputmot" placeholder="Search" name="mc"/>
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
       </form:form>

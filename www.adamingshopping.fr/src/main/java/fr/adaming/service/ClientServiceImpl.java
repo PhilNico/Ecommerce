@@ -39,9 +39,9 @@ public class ClientServiceImpl implements IClientService {
 	}
 
 	@Override
-	public Produit getProduitByKeyWord(Produit p) {
+	public List<Produit> getProduitByKeyWord(String mc) {
 
-		return cDao.getProduitByKeyWord(p);
+		return cDao.getProduitByKeyWord(mc);
 	}
 
 

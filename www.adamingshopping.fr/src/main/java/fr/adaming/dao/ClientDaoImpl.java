@@ -56,14 +56,14 @@ public class ClientDaoImpl implements IClientDao{
 	}
 
 	@Override
-	public Produit getProduitByKeyWord(Produit p) {
+	public List<Produit> getProduitByKeyWord(String mc) {
 		s=sf.getCurrentSession();
 //		Produit p_rec=(Produit) s.get(Produit.class, p.getDesignation());
 //		return p_rec;
-		String req="FROM Produit as p WHERE p.designation=:pD";
+		String req="SELECT p FROM Produit AS p WHERE p.designation LIKE :x OR p.description LIKE :x OR p.categorie.nom LIKE :x";;
 		Query query=s.createQuery(req);
-		query.setParameter("pD", p.getDesignation());
-		return (Produit) query.uniqueResult();
+		query.setParameter("x", "%" + mc + "%");
+		return query.list();
 	}
 
 	@Override
