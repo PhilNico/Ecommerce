@@ -39,7 +39,7 @@
 						<td>${categorie.description}</td>
 						<td><img src="photoCat?idCat=${categorie.idCategorie}" /></td>
 						<td><a
-							href="${pageContext.request.contextPath}/settingCat/delete2?idCategorie=${categorie.idCategorie}">Supprimer</a>
+							href="${pageContext.request.contextPath}/settingCat/delete?idCategorie=${categorie.idCategorie}">Supprimer</a>
 							| <a
 							href="${pageContext.request.contextPath}/settingCat/modifier?idCategorie=${categorie.idCategorie}">modifier</a></td>
 					</tr>

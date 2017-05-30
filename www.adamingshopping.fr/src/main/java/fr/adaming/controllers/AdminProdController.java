@@ -72,7 +72,7 @@ public class AdminProdController {
 		
 	}
 
-	@RequestMapping(value = "/delete", method = RequestMethod.GET)
+	@RequestMapping(value = "/deleteProd", method = RequestMethod.GET)
 	public ModelAndView supprimerProduit(ModelMap model, @RequestParam("idProduit") Long id) {
 
 		Produit p_rec = new Produit();

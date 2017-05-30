@@ -47,7 +47,7 @@
 						<td>${produit.quantite}</td>
 						<td><img src="photoProd?idProd=${produit.idProduit}" /></td>
 						<td><a
-							href="${pageContext.request.contextPath}/setting/delete?idProduit=${produit.idProduit}" href="${pageContext.request.contextPath}/settingCat/delete?idProduit=${produit.idProduit}" >Supprimer</a>
+							href="${pageContext.request.contextPath}/setting/deleteProd?idProduit=${produit.idProduit}"  >Supprimer</a>
 							| <a
 							href="${pageContext.request.contextPath}/setting/modifierProduit?idProduit=${produit.idProduit}">modifier</a></td>
 					</tr>
