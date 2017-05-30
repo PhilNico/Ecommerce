@@ -29,6 +29,7 @@ import fr.adaming.service.IClientService;
 import fr.adaming.service.ILigneCommandeService;
 import fr.adaming.service.IPanierService;
 import fr.adaming.service.IProduitService;
+import fr.adaming.service.IUserService;
 
 @Controller
 @RequestMapping("/client")
@@ -40,6 +41,15 @@ public class ClientController {
 
 	@Autowired
 	private ICategorieService categorieService;
+	
+	@Autowired
+	private IUserService userService;
+	
+	
+
+	public void setUserService(IUserService userService) {
+		this.userService = userService;
+	}
 
 	public void setCategorieService(ICategorieService categorieService) {
 		this.categorieService = categorieService;
@@ -231,11 +241,29 @@ public class ClientController {
 		return new ModelAndView("panier", "pProduit", new Produit());
 	}
 	
-	
-	@RequestMapping(value ="/ajouterClient", method= RequestMethod.GET)
-	public ModelAndView ajouterClient(){
-		return new ModelAndView("formulaireClient", "uUser", new User());
+	public ModelAndView validerPanier(){
 		
 	}
+
+	
+	@RequestMapping(value ="/afficherFormClient", method= RequestMethod.GET)
+	public ModelAndView afficherFormClient(){
+		return new ModelAndView("formulaireClient", "uUser", new User());
+	}
+	
+	
+	@RequestMapping(value="ajouterClient", method= RequestMethod.POST)
+	public ModelAndView ajouterClient(ModelMap model ,@ModelAttribute("uUser") User u){
+		userService.ajouterUser(u);
+		
+		Panier panier = (Panier) session.getAttribute("panier");
+		List<LigneCommande> listeCommande = panier.getListeLignesCommande();
+		model.addAttribute("listeCommande", listeCommande);
+
+		return new ModelAndView("panier", "pProduit", new Produit());
+	}
+	
+	
+	
 
 }

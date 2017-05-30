@@ -26,7 +26,7 @@
 
  
   <div class="form-group">
-    <label for="inputUserName" class="col-sm-2 control-label">Nom du client</label>
+    <label for="inputUserName" class="col-sm-2 control-label">Votre adresse mail :</label>
     <div class="col-sm-8">
       <form:input type="text" class="form-control" id="inputUserName" placeholder="Nom User" path="username"/>
     </div>
@@ -41,18 +41,12 @@
     </div>
   </div>
 
-  <div class="form-group">
-    <label for="inputActived" class="col-sm-2 control-label">Actived</label>
-    <div class="col-sm-8">
-      <form:input type="text" class="form-control" id="inputActived" placeholder="Actived" path="actived"/>
-    </div>
-  </div>
   
   
  
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
-      <button type="submit" class="btn btn-default">Ajouter/ modifier</button>
+      <button type="submit" class="btn btn-default">Ajouter</button>
     </div>
   </div>
 
