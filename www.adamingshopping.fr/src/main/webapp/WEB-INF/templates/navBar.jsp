@@ -42,6 +42,10 @@
     
         <li><a style="color: white" href="${pageContext.request.contextPath}/setting/afficherProduits" class="btn btn-info">Admin</a></li>
        <li><a style="color: white" href="${pageContext.request.contextPath}/client/panier" class="btn btn-success" >Panier</a></li>
+       	<li><a style="color: black" type="button"
+					class="btn btn-danger"
+					href="<c:url value="/j_spring_security_logout"/>">Se
+						deconnecter</a></li>
      
 <!--         <li class="dropdown"> -->
 <!--           <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Administrateur<span class="caret"></span></a> -->
