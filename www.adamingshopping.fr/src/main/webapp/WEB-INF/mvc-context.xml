@@ -8,16 +8,19 @@
 
 	<mvc:annotation-driven />
 	<context:component-scan base-package="fr.adaming.controllers" />
+	
+	<mvc:resources mapping="/assest/**" location="/assests/" />
+	
 	<mvc:default-servlet-handler />
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/view/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
- 
- <bean name="multipartResolver"
+
+	<bean name="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 		<property name="maxUploadSize" value="100000000"></property>
 	</bean>
- 
+
 </beans>

@@ -34,7 +34,7 @@
 </div>
 
 	<c:if test="${not empty erreur}">
-		<h1 style="color: red">Tu t'es trompé sur le Login ou Mdp tu n'as
+		<h1 style="color: red; text-align: center">Tu t'es trompé sur le Login ou Mdp tu n'as
 			plus qu'a trouvé lequel</h1>
 	</c:if>
 </body>

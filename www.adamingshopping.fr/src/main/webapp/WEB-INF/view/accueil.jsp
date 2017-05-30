@@ -16,7 +16,6 @@
 
 </head>
 <body>
-
 <%@include file="../templates/navBar.jsp" %>
 
 <h1 style="text-align: center;">Bienvenue sur Adaming Shopping</h1>
