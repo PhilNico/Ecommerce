@@ -212,12 +212,13 @@ public class ClientController {
 		Produit p = new Produit();
 		p.setIdProduit(id);
 		produitService.consulter(p);
+		
 		return new ModelAndView("formulaireAjoutPanier", "pProduit", p);
 	}
 	
 	
 	@RequestMapping(value="ajouterAuPanier", method=RequestMethod.POST)
-	public String ajouterAuPanier(@ModelAttribute("pProduit") Produit p){
+	public String ajouterAuPanier(ModelMap model ,@ModelAttribute("pProduit") Produit p){
 		
 		Panier panier =(Panier) session.getAttribute("panier");
 		
@@ -229,18 +230,20 @@ public class ClientController {
 		
 		session.setAttribute("panier", panier);
 		
+		model.addAttribute("listeCategorie", categorieService.consulterAll());
+		
 		return "accueil";
 		
 	}
 	
 	@RequestMapping(value = "/deletePanier", method = RequestMethod.GET)
-	public ModelAndView supprimerLignePanier(ModelMap model, @RequestParam("idLigneCommande") Long id) {
+	public ModelAndView supprimerLignePanier(ModelMap model, @RequestParam("index") int index) {
 
 		Panier panier =(Panier) session.getAttribute("panier");
 	
 		List<LigneCommande> listeCommande = panier.getListeLignesCommande();
 	
-	
+		listeCommande.remove(index);
 		
 		
 		
@@ -257,21 +260,23 @@ public class ClientController {
 //			
 //		}
 		
-		
-		
-		
-		
-		for(LigneCommande ligneCommande : listeCommande){
-			
-			if(id==ligneCommande.getId()){
-				
-				System.out.println(ligneCommande);
-				listeCommande.remove(listeCommande.indexOf(ligneCommande));
-			}
-		}
+//		
+//		
+//		
+//		
+//		for(LigneCommande ligneCommande : listeCommande){
+//			
+//			if(id==ligneCommande.getId()){
+//				
+//				System.out.println(ligneCommande);
+//				listeCommande.remove(listeCommande.indexOf(ligneCommande));
+//			}
+//		}
 		
 		panier.setListeLignesCommande(listeCommande);
 		session.setAttribute("panier", panier);
+		
+		model.addAttribute("listeCommande", listeCommande);
 	
 		return new ModelAndView("panier", "pProduit", new Produit());
 	}
