@@ -241,7 +241,17 @@ public class ClientController {
 		return new ModelAndView("panier", "pProduit", new Produit());
 	}
 	
+	
+	@RequestMapping(value ="/validerPanier", method=RequestMethod.GET)
 	public ModelAndView validerPanier(){
+		
+		Panier panier = new Panier();
+
+		List<LigneCommande> listeLignesCommande = new ArrayList<LigneCommande>();
+		panier.setListeLignesCommande(listeLignesCommande);
+		session.setAttribute("panier", panier);
+		
+		return new ModelAndView("panierValide", "pProduit", new Produit());
 		
 	}
 
